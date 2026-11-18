@@ -77,3 +77,5 @@ research/reports/gaps.md
 research/reports/processed.json
 peacoff_data/drafts.json
 peacoff_data/audit_log.jsonl
+peacoff_data/publish_pack/
+peacoff_data/peacoff_publish_pack.zip
