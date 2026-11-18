@@ -75,3 +75,5 @@ research/reports/raw/
 research/reports/drafts/
 research/reports/gaps.md
 research/reports/processed.json
+peacoff_data/drafts.json
+peacoff_data/audit_log.jsonl
