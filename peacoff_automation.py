@@ -76,11 +76,18 @@ RISKY_PATTERNS = [
     (r"الوحيد|حصري(?:ًا)?\s+في\s+مكة", "ادّعاء تفرّد غير موثّق"),
     (r"يعالج|يشفي|يحرق\s+الدهون|يخسّس|يقوّي\s+المناعة", "ادّعاء صحي غير مسموح"),
     (r"مضمون|100\s*%|مئة\s+في\s+المئة", "صيغة ضمان مطلقة"),
-    (r"\d+\s*(?:ر\.?\s?س|ريال|SAR)", "ذكر سعر — يجب أن يكون من الحقائق المعتمدة"),
     (r"خصم\s*\d+|\d+\s*%\s*خصم", "عرض/خصم — يجب أن يكون معتمدًا"),
 ]
 
 DEFAULT_HASHTAGS = ["#بيكوف", "#PEACOFF", "#مكة", "#قهوة_مختصة"]
+
+
+_AR_DIGITS = str.maketrans("٠١٢٣٤٥٦٧٨٩٫", "0123456789.")
+_PRICE_RE = re.compile(r"(\d+(?:\.\d+)?)\s*(?:ر\.?\s?س|ريال|SAR)")
+
+
+def _prices(text: str) -> set[float]:
+    return {float(n) for n in _PRICE_RE.findall(text.translate(_AR_DIGITS))}
 
 
 def now_iso() -> str:
@@ -192,6 +199,9 @@ def validate(draft: Draft, facts: list[str]) -> tuple[list[str], list[str]]:
         m = re.search(pattern, text)
         if m and m.group(0) not in fact_blob:
             warns.append(f"«{m.group(0)}» ← {reason}")
+
+    for price in sorted(_prices(text) - _prices(fact_blob)):
+        warns.append(f"سعر {price:g} ر.س غير موجود في الحقائق المعتمدة")
 
     if not draft.image_url:
         warns.append("لا يوجد image_url — مطلوب للنشر الفعلي (رابط عام مباشر).")
