@@ -36,6 +36,20 @@
       "note": "تدرج سمنتي فاتح بحسب الهوية"
     },
     {
+      "id": "ST1",
+      "kind": "story",
+      "date": "2026-11-20",
+      "status": "approved",
+      "pillar": "ستوري",
+      "hook": "أوقات العمل والعنوان",
+      "drive_ids": [
+        "1Hv-sx5lYpMXUOkCfJxGNWie_NolQVrOf"
+      ],
+      "caption": "",
+      "published": null,
+      "note": "هوية رسمية + شعار حقيقي"
+    },
+    {
       "id": "CAR1",
       "kind": "carousel",
       "date": "2026-11-21",
@@ -56,6 +70,20 @@
       "note": "v2 بالهوية الرسمية (سمنتي/تيفاني/أبيض) + الشعار الحقيقي في الختام. المحاصيل متوفرة بتأكيد المؤسس"
     },
     {
+      "id": "ST2",
+      "kind": "story",
+      "date": "2026-11-21",
+      "status": "approved",
+      "pillar": "ستوري",
+      "hook": "محصول: حراز",
+      "drive_ids": [
+        "1kVN-zhRwm5FoetcNAInCG02_nMih0IeH"
+      ],
+      "caption": "",
+      "published": null,
+      "note": "هوية رسمية + شعار حقيقي"
+    },
+    {
       "id": "REEL1",
       "kind": "video",
       "date": "2026-11-22",
@@ -68,6 +96,20 @@
       "caption": "V60 بمحصول حراز.\nأول صبّة تبلّل القهوة المطحونة وتُخرج منها الغاز (البلوم)، ثم نكمل الصبّ ببطء.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
       "published": null,
       "note": "ريل مونتاج 9.5ث، صامت — أضف صوتًا من التطبيق لو نشرتَه يدويًا | بطاقة ختام بالشعار الرسمي"
+    },
+    {
+      "id": "ST3",
+      "kind": "story",
+      "date": "2026-11-22",
+      "status": "approved",
+      "pillar": "ستوري",
+      "hook": "محصول: كالداس",
+      "drive_ids": [
+        "1YNZ9KF2HMlRolIkSzMgwVHoD0ilphjM_"
+      ],
+      "caption": "",
+      "published": null,
+      "note": "هوية رسمية + شعار حقيقي"
     },
     {
       "id": "L03",
@@ -84,6 +126,20 @@
       "note": "تدرج سمنتي فاتح بحسب الهوية"
     },
     {
+      "id": "ST4",
+      "kind": "story",
+      "date": "2026-11-23",
+      "status": "approved",
+      "pillar": "ستوري",
+      "hook": "سؤال: أي محصول تحب؟ (أضف ستيكر Questions يدويًا إن أردت)",
+      "drive_ids": [
+        "1YkmOyti9oFWSqexvxd4eNijgR9QFPNaN"
+      ],
+      "caption": "",
+      "published": null,
+      "note": "هوية رسمية + شعار حقيقي"
+    },
+    {
       "id": "L05",
       "kind": "image",
       "date": "2026-11-24",
@@ -96,6 +152,20 @@
       "caption": "V60.\n\nتقطير يدوي: نصبّ الماء على القهوة المطحونة ببطء وبتحكّم، فيطلع كوب نظيف تظهر فيه تفاصيل المحصول.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
       "published": null,
       "note": "الصورة 720×1280 — بانتظار الأصل"
+    },
+    {
+      "id": "ST5",
+      "kind": "story",
+      "date": "2026-11-24",
+      "status": "approved",
+      "pillar": "ستوري",
+      "hook": "محصول: جوز الهند",
+      "drive_ids": [
+        "1jNegbxrJLB6f0Y49E2bVszJtj46iA4Zz"
+      ],
+      "caption": "",
+      "published": null,
+      "note": "هوية رسمية + شعار حقيقي"
     },
     {
       "id": "L04",
@@ -112,6 +182,20 @@
       "note": "تدرج سمنتي فاتح بحسب الهوية"
     },
     {
+      "id": "ST6",
+      "kind": "story_video",
+      "date": "2026-11-25",
+      "status": "approved",
+      "pillar": "ستوري",
+      "hook": "فيديو: إسبريسو بحركة بطيئة",
+      "drive_ids": [
+        "136gq4heeqBjKo_pRcJmqfJ5GDxncG1bj"
+      ],
+      "caption": "",
+      "published": null,
+      "note": "هوية رسمية + شعار حقيقي"
+    },
+    {
       "id": "REEL2",
       "kind": "video",
       "date": "2026-11-26",
@@ -126,6 +210,20 @@
       "note": "ريل 10.5ث صامت — الهوك: «إسبريسو / مصنوع بحب» | بطاقة ختام بالشعار الرسمي"
     },
     {
+      "id": "ST7",
+      "kind": "story",
+      "date": "2026-11-26",
+      "status": "approved",
+      "pillar": "ستوري",
+      "hook": "محصول: سفاري",
+      "drive_ids": [
+        "1C2OmCXfjUlJ9AguOBm8Q9O_ckBy9iip2"
+      ],
+      "caption": "",
+      "published": null,
+      "note": "هوية رسمية + شعار حقيقي"
+    },
+    {
       "id": "L06",
       "kind": "image",
       "date": "2026-11-27",
@@ -138,6 +236,20 @@
       "caption": "من البار.\n\n#بيكوف #قهوة_مختصة #مكة",
       "published": null,
       "note": "تدرج سمنتي فاتح بحسب الهوية"
+    },
+    {
+      "id": "ST8",
+      "kind": "story",
+      "date": "2026-11-27",
+      "status": "approved",
+      "pillar": "ستوري",
+      "hook": "من البار",
+      "drive_ids": [
+        "14ay9X6cG0tOxAKMS-ba268s-s-2JtKvN"
+      ],
+      "caption": "",
+      "published": null,
+      "note": "هوية رسمية + شعار حقيقي"
     }
   ]
 }

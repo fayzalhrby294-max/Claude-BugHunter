@@ -529,10 +529,11 @@ def calendar_due(day: Optional[str] = None) -> list[dict]:
     out = []
     for it in cal["items"]:
         if it["status"] == "approved" and not it.get("published") and it["date"] <= day:
-            errors, _ = validate(Draft(id=it["id"], topic=it["id"], caption=it.get("caption", ""),
-                                       hashtags=[], image_brief="", image_url="x"), load_brand_facts())
-            if errors:
-                continue  # حواجز الجودة: لا ينشر نصًا مخالفًا
+            if not it["kind"].startswith("story"):  # الستوري بلا كابشن
+                errors, _ = validate(Draft(id=it["id"], topic=it["id"], caption=it.get("caption", ""),
+                                           hashtags=[], image_brief="", image_url="x"), load_brand_facts())
+                if errors:
+                    continue  # حواجز الجودة: لا ينشر نصًا مخالفًا
             it = dict(it)
             it["urls"] = [cal["drive_url_template"].format(id=i) for i in it["drive_ids"]]
             out.append(it)
