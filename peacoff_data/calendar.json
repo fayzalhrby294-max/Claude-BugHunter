@@ -5,6 +5,54 @@
   "drive_url_template": "https://drive.google.com/uc?export=download&id={id}",
   "items": [
     {
+      "id": "INTRO-A",
+      "kind": "image",
+      "date": "2026-11-19",
+      "status": "hold",
+      "pillar": "تعريف",
+      "hook": "الهوية (شعار + قهوة مختصة)",
+      "drive_ids": [
+        "1iVxmsdnpPeHKVvSVVS-7mXgZU2_KYFKd"
+      ],
+      "caption": "بيكوف.\nقهوة مختصة في الشوقية، مكة المكرمة.\n\nمحاصيل من اليمن وكولومبيا وإثيوبيا، نحضّرها يدويًا. مصنوعة بحب.\n\n#بيكوف #قهوة_مختصة #مكة",
+      "published": null,
+      "note": "رُفض النشر من المؤسس — بانتظار توجيهه"
+    },
+    {
+      "id": "INTRO-B",
+      "kind": "image",
+      "date": "2026-11-19",
+      "status": "published",
+      "pillar": "تعريف",
+      "hook": "المكان والأوقات",
+      "drive_ids": [
+        "1RkqYoaWZ-QntT0yDJtbCS5-1iUrVCHPz"
+      ],
+      "caption": "الشوقية، مكة المكرمة.\nشارع أم المؤمنين زينب الهلالية.\n\nالسبت – الخميس: من 7 صباحًا حتى 2 بعد منتصف الليل.\nالجمعة: من 2 ظهرًا حتى 2 بعد منتصف الليل.\n\n#بيكوف #قهوة_مختصة #مكة",
+      "published": {
+        "media_id": "18127993438928867",
+        "at": "2026-11-19"
+      },
+      "note": ""
+    },
+    {
+      "id": "INTRO-C",
+      "kind": "image",
+      "date": "2026-11-19",
+      "status": "published",
+      "pillar": "تعريف",
+      "hook": "الصنعة: V60",
+      "drive_ids": [
+        "1KFizS0-_kG5t9PBqUGoXQ8P1EM2WbgAo"
+      ],
+      "caption": "V60.\n\nنصبّ الماء على القهوة المطحونة ببطء، وأول صبّة تبلّلها وتُخرج منها الغاز (البلوم). التقطير اليدوي يعطينا تحكمًا كاملًا في كل كوب.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
+      "published": {
+        "media_id": "18122286487951114",
+        "at": "2026-11-19"
+      },
+      "note": ""
+    },
+    {
       "id": "L01",
       "kind": "image",
       "date": "2026-11-19",
