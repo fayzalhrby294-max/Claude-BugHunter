@@ -7,9 +7,9 @@ const AR='U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF,U+200C-200F,U+2010-201
 const ff=(fam,w,f,r)=>`@font-face{font-family:'${fam}';font-weight:${w};src:url(data:font/woff2;base64,${b(f)});unicode-range:${r}}`;
 const css=[400,600,700].flatMap(w=>[ff('NSA',w,`noto-sans-arabic/files/noto-sans-arabic-arabic-${w}-normal.woff2`,AR),ff('NSA',w,`open-sans/files/open-sans-latin-${w}-normal.woff2`,LA)]).join('');
 // الكلمات كما كتبها المالك بالضبط (إنجليزي أساسي + عربي صغير)
-const BEANS=[['Ice Box','ايس بوكس'],['Infusion','انفيوجن'],['Ethiopian','اثيوبي'],['Colombian','كولومبي']];
+const BEANS=[['Ice Box','ايس بوكس'],['Infusion','انفيوجن'],['Ethiopian','اثيوبي'],['Colombian','كولومبي'],['Hibiscus','كركديه']];
 const st=(en,ar)=>`<div class="s"><img src="${sym}"><div class="tx"><div class="en">${en||'&nbsp;'}</div><div class="ar">${ar||'&nbsp;'}</div></div></div>`;
-const cells=[...BEANS.flatMap(([e,a])=>[st(e,a),st(e,a)]),st('',''),st('',''),st('',''),st('',''),st('',''),st('','')];
+const cells=[...BEANS.flatMap(([e,a])=>[st(e,a),st(e,a)]),st('',''),st('',''),st('',''),st('','')];
 const html=`<!doctype html><html dir="rtl" lang="ar"><head><meta charset="utf-8"><style>${css}
 @page{size:A4;margin:0}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'NSA',sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .pg{width:210mm;height:297mm;padding:12mm 32mm}

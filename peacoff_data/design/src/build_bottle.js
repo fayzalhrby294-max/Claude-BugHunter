@@ -7,10 +7,10 @@ const logo='data:image/png;base64,'+fs.readFileSync(L+'logo_stacked_tiffany.png'
 const AR='U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF,U+200C-200F,U+2010-2011,U+25CC',LA='U+0000-00FF,U+2013-2014,U+2022,U+00B7';
 const ff=(fam,w,f,r)=>`@font-face{font-family:'${fam}';font-weight:${w};src:url(data:font/woff2;base64,${b(f)});unicode-range:${r}}`;
 const css=[400,600,700].flatMap(w=>[ff('NSA',w,`noto-sans-arabic/files/noto-sans-arabic-arabic-${w}-normal.woff2`,AR),ff('NSA',w,`open-sans/files/open-sans-latin-${w}-normal.woff2`,LA)]).join('');
-const ITEMS=[['Ice Box','ايس بوكس'],['Infusion','انفيوجن']];
+const ITEMS=[['Ice Box','ايس بوكس'],['Infusion','انفيوجن'],['Hibiscus','كركديه']];
 const st=(en,ar)=>`<div class="s"><div class="lg"><img src="${logo}"></div><div class="tx"><div class="en">${en||'&nbsp;'}</div><div class="ar">${ar||'&nbsp;'}</div>
  <div class="rows"><div class="r"><span>PREP</span><i></i><span class="a">التحضير</span></div><div class="r"><span>USE BY</span><i></i><span class="a">ينتهي</span></div></div></div></div>`;
-const cells=[...ITEMS.flatMap(([e,a])=>[st(e,a),st(e,a),st(e,a)]),...Array.from({length:6},()=>st('',''))];
+const cells=[...ITEMS.flatMap(([e,a])=>[st(e,a),st(e,a),st(e,a)]),...Array.from({length:3},()=>st('',''))];
 const html=`<!doctype html><html lang="ar"><head><meta charset="utf-8"><style>${css}
 @page{size:A4;margin:0}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'NSA',sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .pg{width:210mm;height:297mm;padding:14mm 22mm}

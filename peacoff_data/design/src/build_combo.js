@@ -9,9 +9,9 @@ const AR='U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF,U+200C-200F,U+2010-201
 const ff=(fam,w,f,r)=>`@font-face{font-family:'${fam}';font-weight:${w};src:url(data:font/woff2;base64,${b(f)});unicode-range:${r}}`;
 const css=[400,600,700].flatMap(w=>[ff('NSA',w,`noto-sans-arabic/files/noto-sans-arabic-arabic-${w}-normal.woff2`,AR),ff('NSA',w,`open-sans/files/open-sans-latin-${w}-normal.woff2`,LA)]).join('');
 // أجهزة (70x35): كلمات المالك فقط
-const M=[['Ice Box','ايس بوكس'],['Infusion','انفيوجن'],['Ethiopian','اثيوبي'],['Colombian','كولومبي'],['',''],['','']];
+const M=[['Ice Box','ايس بوكس'],['Infusion','انفيوجن'],['Ethiopian','اثيوبي'],['Colombian','كولومبي'],['Hibiscus','كركديه'],['','']];
 // قوارير (80x40)
-const B=[['Ice Box','ايس بوكس'],['Ice Box','ايس بوكس'],['Infusion','انفيوجن'],['Infusion','انفيوجن'],['',''],['','']];
+const B=[['Ice Box','ايس بوكس'],['Ice Box','ايس بوكس'],['Infusion','انفيوجن'],['Infusion','انفيوجن'],['Hibiscus','كركديه'],['Hibiscus','كركديه']];
 const mach=(en,ar)=>`<div class="m"><img src="${sym}"><div class="mt"><div class="men">${en||'&nbsp;'}</div><div class="mar">${ar||'&nbsp;'}</div></div></div>`;
 const bot=(en,ar)=>`<div class="s"><div class="lg"><img src="${logo}"></div><div class="tx"><div class="en">${en||'&nbsp;'}</div><div class="ar">${ar||'&nbsp;'}</div>
  <div class="rows"><div class="r"><span>PREP</span><i></i><span class="a">التحضير</span></div><div class="r"><span>USE BY</span><i></i><span class="a">ينتهي</span></div></div></div></div>`;
