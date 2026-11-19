@@ -29,31 +29,31 @@
       "pillar": "محصول",
       "hook": "حراز: معلومة + نكهات من الكيس",
       "drive_ids": [
-        "1ngzYtfU2fKIi6Ltxfkn7RqOB7qwKW8PI"
+        "1vy0-4bky7gXf6vGv5bGYVvuWvfOcwucR"
       ],
       "caption": "حراز، اليمن.\n\nمرتفعات جبلية مدرّجة، واليمن من أقدم البلاد التي عُرفت فيها زراعة القهوة.\n\nمحصول V60 عندنا بمعالجة Anaerobic: تُخمَّر الثمار في بيئة قليلة الأكسجين قبل التجفيف، وغالبًا ما تظهر معها نكهات الفاكهة. على الكيس: برتقال، بطيخ، توت.\n\nارتفاع المزرعة 2200 م، وتحميص متوسط.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
       "published": null,
-      "note": ""
+      "note": "تدرج سمنتي فاتح بحسب الهوية"
     },
     {
       "id": "CAR1",
       "kind": "carousel",
       "date": "2026-11-21",
-      "status": "hold",
+      "status": "approved",
       "pillar": "محصول",
       "hook": "أربعة محاصيل على الكيس",
       "drive_ids": [
-        "1HzFpMs1cPl0g-PHuP6ZAR0gnkN-q8F5X",
-        "1lDzbqNjAyLxwpSVUjYPe7Akt884ZIZyV",
-        "1UmAjftCZ7ip70JzBfeJQM1tbUnXUR22E",
-        "1znkYc75Jby472b7h1mRJj1ydIsGhaevx",
-        "1DWktSgdmDBYRN_T8C49M12igWLazy6Xm",
-        "1zqiPEDGNc_Z0eLQgw2IHtXMQwlrsDa03",
-        "1wuYtGR_3xTGWkTfQsHAPExwJwd_pId_e"
+        "1GkDMwwLMW3hsFCQpbJaSX4JgqQ82BmzK",
+        "1FLlSV40OzO310WTN-z1HjdzMyv17K_bW",
+        "1obfGNIdftDDzIgmPPk4B-0__6cDKqbKi",
+        "1gLKSwrmA0AU-BSCuTzQ27z4yBfNRXlFE",
+        "10jtvBH1vM1qC44nr9MGzsZgQ5nHp9wQk",
+        "1RpPTMyYpsPizauahzXDph6uJCEOhsBoD",
+        "1CH9e76lPlkY5z17BLxGpRaNHTtCb1EaY"
       ],
       "caption": "محاصيل V60 عندنا، كما هي على الكيس.\n\nأربعة محاصيل: حراز من اليمن، كالداس وجوز الهند من كولومبيا، وسفاري من إثيوبيا. لكل واحد ارتفاعه ومعالجته ونكهاته، وفي آخر الصور شرح بسيط لمعنى Natural وAnaerobic.\n\nالمتوفر منها يتغيّر، فاسأل عنه وقت زيارتك.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
       "published": null,
-      "note": "v2 بالهوية الرسمية بانتظار قرارك وملف الشعار"
+      "note": "v2 بالهوية الرسمية (سمنتي/تيفاني/أبيض) + الشعار الحقيقي في الختام. المحاصيل متوفرة بتأكيد المؤسس"
     },
     {
       "id": "REEL1",
@@ -63,11 +63,11 @@
       "pillar": "طريقة",
       "hook": "صبّ V60 على الحراز + نص هوك",
       "drive_ids": [
-        "1hQsTTqpGxu_p-1d2P2GJT6wx-95iZZT-"
+        "1xaqSZIz5uoS8pY7ZyKt3PctS51KKrXsA"
       ],
       "caption": "V60 بمحصول حراز.\nأول صبّة تبلّل القهوة المطحونة وتُخرج منها الغاز (البلوم)، ثم نكمل الصبّ ببطء.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
       "published": null,
-      "note": "ريل مونتاج 9.5ث، صامت — أضف صوتًا من التطبيق لو نشرتَه يدويًا"
+      "note": "ريل مونتاج 9.5ث، صامت — أضف صوتًا من التطبيق لو نشرتَه يدويًا | بطاقة ختام بالشعار الرسمي"
     },
     {
       "id": "L03",
@@ -77,11 +77,11 @@
       "pillar": "تعليم",
       "hook": "الإسبريسو يكشف المحصول",
       "drive_ids": [
-        "1tAkS49xQhy76hGGzkVM1Ll5cub-fboJO"
+        "1or4Vx8GToz8ue_-TmfIHrMQZKdP2NLm2"
       ],
       "caption": "إسبريسو.\n\nتركيز عالٍ في فنجان صغير، وهو من أكثر الطرق كشفًا للمحصول. مصنوع بحب.\n\n#بيكوف #قهوة_مختصة #مكة",
       "published": null,
-      "note": ""
+      "note": "تدرج سمنتي فاتح بحسب الهوية"
     },
     {
       "id": "L05",
@@ -105,11 +105,11 @@
       "pillar": "قهوة اليوم",
       "hook": "قهوة اليوم الباردة",
       "drive_ids": [
-        "1WxMlUB6xb8qoC7I_fGUoibDUSUYHOCGD"
+        "1SryZAlvR_YhvFWkBMw11Lwokk1ODOWAg"
       ],
       "caption": "قهوة اليوم الباردة.\nقهوة سوداء على الثلج، وتتغيّر كل يوم.\n\nاسأل عن محصول اليوم.\n\n#بيكوف #قهوة_مختصة #مكة",
       "published": null,
-      "note": ""
+      "note": "تدرج سمنتي فاتح بحسب الهوية"
     },
     {
       "id": "REEL2",
@@ -119,11 +119,11 @@
       "pillar": "طريقة",
       "hook": "لقطة الاستخلاص المقرّبة + نص هوك",
       "drive_ids": [
-        "1wTip3yvNxmf_z9hH6Dkc1PxXnmLZ60Hj"
+        "1JKBbhXx72JdzPPtKwzzWrp7E7DiMSOZ-"
       ],
       "caption": "إسبريسو يدوي.\nالاستخلاص بذراع الضغط، ومصنوع بحب.\n\n#بيكوف #قهوة_مختصة #مكة",
       "published": null,
-      "note": "ريل 10.5ث صامت — الهوك: «إسبريسو / مصنوع بحب»"
+      "note": "ريل 10.5ث صامت — الهوك: «إسبريسو / مصنوع بحب» | بطاقة ختام بالشعار الرسمي"
     },
     {
       "id": "L06",
@@ -133,11 +133,11 @@
       "pillar": "المكان",
       "hook": "من البار",
       "drive_ids": [
-        "1cUeEj_WFJyuVC6eoVFlBiHHO5kCeqTDv"
+        "1WtFF55lnYD2ufd6CtWPIxLL1ehn91VS-"
       ],
       "caption": "من البار.\n\n#بيكوف #قهوة_مختصة #مكة",
       "published": null,
-      "note": ""
+      "note": "تدرج سمنتي فاتح بحسب الهوية"
     }
   ]
 }
