@@ -132,7 +132,7 @@ ws.page_margins.left = ws.page_margins.right = 0.4; ws.page_margins.top = 0.4; w
 # ============ تقفيل الشفت ============
 w2 = wb.create_sheet("تقفيل الشفت"); page(w2)
 for col, w in zip("ABCD", (30, 18, 30, 18)): w2.column_dimensions[col].width = w
-title(w2, "PEACOFF · تقفيل الشفت", "املأ الخانات الصفراء فقط · الإجمالي والمتوقع والفرق تُحسب تلقائيًا · انسخ الورقة (Move or Copy) لكل يوم", 4)
+title(w2, "PEACOFF · تقفيل الشفت", "املأ الخانات الكريمية فقط · الإجمالي والمتوقع والفرق تُحسب تلقائيًا · انسخ الورقة (Move or Copy) لكل يوم", 4)
 label(w2["A4"], "التاريخ", True); inp(w2["B4"], "yyyy-mm-dd")
 label(w2["C4"], "الشفت", True); inp(w2["D4"])
 label(w2["A5"], "الموظف", True); inp(w2["B5"]); w2.merge_cells("B5:D5")
@@ -209,6 +209,38 @@ for i, (t, f_, nf) in enumerate(stats):
     for cc in "DE": w3[f"{cc}{r}"].border = BORDER
     w3[f"B{r}"] = f_; calc(w3[f"B{r}"], nf, True)
 w3.print_area = f"A1:L{S+3}"
+
+# ============ توحيد تصميم ورقتي التقفيل وكل الأيام مع الجرد ============
+def restyle(ws, ncols, ttl, sub, legend_row):
+    from openpyxl.utils import get_column_letter as L
+    legend = ws["A2"].value
+    for rng in list(ws.merged_cells.ranges):
+        if rng.min_row in (1, 2) and rng.max_row in (1, 2): ws.unmerge_cells(str(rng))
+    ws["A1"].value = None; ws["A2"].value = None
+    for r_ in (1, 2):
+        for ci in range(1, ncols + 1):
+            c = ws.cell(row=r_, column=ci); c.fill = PatternFill("solid", fgColor=INK)
+    for ci in range(1, ncols + 1): ws.cell(row=3, column=ci).fill = PatternFill("solid", fgColor=TIFD)
+    ws.row_dimensions[1].height = 36; ws.row_dimensions[2].height = 22; ws.row_dimensions[3].height = 3
+    last = L(ncols)
+    ws.merge_cells(f"B1:{last}1"); ws["B1"] = ttl; ws["B1"].font = Font(name=F, bold=True, size=20, color="FFFFFF"); ws["B1"].alignment = Alignment(horizontal="right", vertical="center")
+    ws.merge_cells(f"B2:{last}2"); ws["B2"] = sub; ws["B2"].font = Font(name=F, size=8, color=TIFF, bold=True); ws["B2"].alignment = Alignment(horizontal="right", vertical="center")
+    ws.merge_cells(f"A{legend_row}:{last}{legend_row}"); ws[f"A{legend_row}"] = legend; ws[f"A{legend_row}"].font = Font(name=F, size=8, italic=True, color="59666A"); ws[f"A{legend_row}"].alignment = Alignment(horizontal="right", vertical="center")
+    im = XLImage("/home/user/Claude-BugHunter/peacoff_data/design/logo/symbol_tiffany.png"); im.height = 52; im.width = int(52*739/1669); ws.add_image(im, "A1")
+    for row in ws.iter_rows(min_row=4):
+        for c in row:
+            rgb = (c.fill.fgColor.rgb or "") if c.fill and c.fill.fill_type else ""
+            if rgb.endswith("FFF9C4"): c.fill = PatternFill("solid", fgColor=CREAM)
+            elif rgb.endswith("E9F4F4"): c.fill = PatternFill("solid", fgColor=SAND)
+            elif rgb.endswith("2B3032"):
+                c.fill = PatternFill("solid", fgColor=INK); c.border = Border(bottom=Side(style="medium", color=TIFF))
+            if c.border and c.border.left and c.border.left.style == "thin":
+                c.border = Border(left=thin2, right=thin2, top=thin2, bottom=thin2) if rgb.endswith("2B3032") is False else c.border
+            if c.font and c.font.color is not None and c.font.color.rgb and str(c.font.color.rgb).endswith("0000FF"):
+                c.font = Font(name=F, size=c.font.size or 11, bold=c.font.bold, color=INK)
+restyle(w2, 4, "تقفيل الشفت  ·  SHIFT CLOSING", "P E A C O F F   ·   COFFEE & MORE", 6)
+restyle(w3, 12, "كل الأيام  ·  ALL DAYS", "P E A C O F F   ·   COFFEE & MORE", 5)
+w2["B4"].value = w2["B4"].value
 
 wb.save(OUT)
 print("saved", OUT)
