@@ -79,3 +79,7 @@ peacoff_data/drafts.json
 peacoff_data/audit_log.jsonl
 peacoff_data/publish_pack/
 peacoff_data/peacoff_publish_pack.zip
+peacoff_data/gbp.zip
+peacoff_data/gbp/photos/
+peacoff_data/gbp/*.jpg
+peacoff_data/gbp/*.png
