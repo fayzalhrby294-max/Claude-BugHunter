@@ -4,7 +4,7 @@ S="/tmp/claude-0/-home-user-Claude-BugHunter/b9087e4e-6c13-5102-8402-2143e0fba60
 SEG=S+"seg/"
 CL={4:"5f2a9965-IMG_7227.mov",3:"ae662c5a-IMG_7225.mov",2:"bde6b851-IMG_7224.mov",5:"b76bab98-IMG_7228.mov",6:"d510305b-IMG_7230.mov",1:"3261eb24-IMG_7219.mov"}
 # (clip, ss, dur, push)
-TL=[(4,4.2,2.1,0),(3,0.6,2.6,0),(2,4.4,1.8,0),(3,5.3,2.6,0),(5,0.0,2.5,0),(6,0.15,0.7,0),(1,3.0,5.4,1)]
+TL=[(4,4.2,2.1,0),(2,4.5,2.0,2),(2,0.0,2.0,1),(5,0.0,2.5,0),(6,0.15,0.7,0),(1,3.0,5.4,1)]
 GRADE=("hqdn3d=1.4:1.4:5:5,eq=contrast=1.06:saturation=0.9:gamma=1.02,"
        "colorbalance=rs=-0.02:bs=0.035:rh=0.05:gh=0.015:bh=-0.05,curves=all='0/0.04 0.5/0.5 1/0.97',"
        "vignette=angle=PI/6,unsharp=5:5:0.7:5:5:0.0,noise=alls=3:allf=t")
@@ -14,7 +14,8 @@ def run(c):
 segs=[]
 for i,(c,ss,d,push) in enumerate(TL):
     out=f"{SEG}s{i}.mp4"
-    if push: vf=f"scale=w='1080*(1+0.055*t/{d})':h=-2:eval=frame:flags=lanczos,crop=1080:1920"
+    if push==2: vf=f"scale=1080:1974:flags=lanczos,crop=734:1305:x='(iw-734)/2-22+44*t/{d}':y=0,scale=1080:1920:flags=lanczos"
+    elif push: vf=f"scale=w='1080*(1+0.055*t/{d})':h=-2:eval=frame:flags=lanczos,crop=1080:1920"
     else: vf="scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920"
     vf+=","+GRADE+",fps=30"+(",fade=t=in:st=0:d=0.3" if i==0 else "")+",format=yuv420p"
     af=f"aresample=48000,aformat=channel_layouts=stereo,afade=t=in:d=0.04,afade=t=out:st={d-0.04}:d=0.04"
