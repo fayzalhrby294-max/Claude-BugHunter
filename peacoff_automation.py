@@ -494,6 +494,90 @@ def cmd_review(a, store: Store) -> None:
             break
 
 
+
+# ───────────────────────────── تقويم المحتوى والتقارير ─────────────────────────────
+# التقويم (peacoff_data/calendar.json) هو مصدر الحقيقة للنشر المجدول:
+#   status: approved (يُنشر في موعده) | hold (ينتظر قرارًا) | published
+# النشر الفعلي يتم عبر موصّل إنستجرام؛ هذا الملف يحدّد "ما المستحق" ويسجّل النتيجة ويحلل الأداء.
+
+CAL_FILE = DATA_DIR / "calendar.json"
+
+
+def _load_cal() -> dict:
+    return json.loads(CAL_FILE.read_text(encoding="utf-8"))
+
+
+def _save_cal(cal: dict) -> None:
+    tmp = CAL_FILE.with_suffix(".tmp")
+    tmp.write_text(json.dumps(cal, ensure_ascii=False, indent=2), encoding="utf-8")
+    tmp.replace(CAL_FILE)
+
+
+def _riyadh_today() -> str:
+    from datetime import timedelta
+    return (datetime.now(timezone.utc) + timedelta(hours=3)).strftime("%Y-%m-%d")
+
+
+def calendar_due(day: Optional[str] = None) -> list[dict]:
+    """العناصر المعتمدة وغير المنشورة التي حان موعدها (التاريخ <= اليوم)."""
+    cal = _load_cal()
+    day = day or _riyadh_today()
+    out = []
+    for it in cal["items"]:
+        if it["status"] == "approved" and not it.get("published") and it["date"] <= day:
+            errors, _ = validate(Draft(id=it["id"], topic=it["id"], caption=it.get("caption", ""),
+                                       hashtags=[], image_brief="", image_url="x"), load_brand_facts())
+            if errors:
+                continue  # حواجز الجودة: لا ينشر نصًا مخالفًا
+            it = dict(it)
+            it["urls"] = [cal["drive_url_template"].format(id=i) for i in it["drive_ids"]]
+            out.append(it)
+    return sorted(out, key=lambda x: x["date"])
+
+
+def calendar_mark(item_id: str, media_id: str) -> None:
+    cal = _load_cal()
+    for it in cal["items"]:
+        if it["id"] == item_id:
+            it["published"] = {"media_id": media_id, "at": now_iso()}
+            it["status"] = "published"
+            _save_cal(cal)
+            Store.audit("published", item_id, media_id=media_id)
+            return
+    raise SystemExit(f"❌ عنصر غير موجود: {item_id}")
+
+
+def performance_report(rows: list[dict]) -> str:
+    """تقرير أداء من صفوف get_data (instagram). المعيار الأهم: حفظ+مشاركة لكل وصول."""
+    def n(r, k):
+        v = r.get(k)
+        return float(v) if v not in (None, "") else 0.0
+    rows = [r for r in rows if r.get("media_id")]
+    if not rows:
+        return "لا توجد منشورات في النطاق."
+    for r in rows:
+        reach = n(r, "media_reach")
+        r["_sr"] = (n(r, "media_saved") + n(r, "media_shares")) / reach if reach else 0.0
+        r["_fr"] = n(r, "media_follows") / reach if reach else 0.0
+    rows.sort(key=lambda r: r["_sr"], reverse=True)
+    lines = ["| المنشور | النوع | مشاهدات | وصول | حفظ | مشاركة | (حفظ+مشاركة)/وصول | متابعات جديدة |",
+             "|---|---|---|---|---|---|---|---|"]
+    for r in rows:
+        cap = (r.get("media_caption") or "").strip().splitlines()[0][:28] if r.get("media_caption") else r["media_id"]
+        lines.append(f"| {cap} | {r.get('media_type','')} | {n(r,'media_views'):.0f} | {n(r,'media_reach'):.0f} | "
+                     f"{n(r,'media_saved'):.0f} | {n(r,'media_shares'):.0f} | {r['_sr']*100:.1f}% | {n(r,'media_follows'):.0f} |")
+    best, worst = rows[0], rows[-1]
+    by_type: dict[str, list[float]] = {}
+    for r in rows:
+        by_type.setdefault(r.get("media_type", "?"), []).append(r["_sr"])
+    avg = {t: sum(v) / len(v) for t, v in by_type.items()}
+    top_type = max(avg, key=avg.get)
+    lines += ["", f"الأقوى: {(best.get('media_caption') or best['media_id']).strip().splitlines()[0][:40]} ({best['_sr']*100:.1f}%).",
+              f"الأضعف: {(worst.get('media_caption') or worst['media_id']).strip().splitlines()[0][:40]} ({worst['_sr']*100:.1f}%).",
+              f"أفضل نوع حاليًا: {top_type}. (العيّنة صغيرة — لا تقرّر بأقل من 8 منشورات.)"]
+    return "\n".join(lines)
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description="أتمتة محتوى إنستجرام لبيكوف مع موافقة بشرية قبل النشر")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -516,6 +600,13 @@ def build_parser() -> argparse.ArgumentParser:
     ap = sub.add_parser("approve"); ap.add_argument("id"); ap.add_argument("--by", required=True)
     rj = sub.add_parser("reject"); rj.add_argument("id"); rj.add_argument("--by", required=True)
     rj.add_argument("--reason", required=True)
+
+    cd = sub.add_parser("calendar-due", help="العناصر المعتمدة المستحقة اليوم (JSON)")
+    cd.add_argument("--date", default=None)
+    cm = sub.add_parser("calendar-mark", help="تسجيل نشر عنصر من التقويم")
+    cm.add_argument("id"); cm.add_argument("--media-id", required=True)
+    rp = sub.add_parser("report", help="تقرير أداء من ملف JSON لصفوف get_data")
+    rp.add_argument("metrics")
 
     pb = sub.add_parser("publish", help="نشر (تجريبي افتراضيًا)")
     pb.add_argument("id")
@@ -543,6 +634,12 @@ def main(argv: Optional[list[str]] = None) -> None:
         d = store.get(a.id); approve(store, d, a.by); show(d)
     elif a.cmd == "reject":
         d = store.get(a.id); reject(store, d, a.by, a.reason); show(d)
+    elif a.cmd == "calendar-due":
+        print(json.dumps(calendar_due(a.date), ensure_ascii=False, indent=2))
+    elif a.cmd == "calendar-mark":
+        calendar_mark(a.id, a.media_id); print("✔ سُجّل.")
+    elif a.cmd == "report":
+        print(performance_report(json.loads(Path(a.metrics).read_text(encoding="utf-8"))))
     elif a.cmd == "publish":
         publish(store, store.get(a.id), a.live, a.confirm_publish)
 

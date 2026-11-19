@@ -1,0 +1,127 @@
+{
+  "account_id": "17841438543839664",
+  "handle": "@peacoff1",
+  "timezone": "Asia/Riyadh",
+  "drive_url_template": "https://drive.google.com/uc?export=download&id={id}",
+  "items": [
+    {
+      "id": "L01",
+      "kind": "image",
+      "date": "2026-11-19",
+      "status": "published",
+      "pillar": "هوية",
+      "hook": "أول بوست: تعريف هادئ",
+      "drive_ids": [
+        "1takjTGMIIp4BZ667qit2fMGeI3sfoIqC"
+      ],
+      "caption": "بيكوف · Coffee & More\nالشوقية، مكة المكرمة.\n\n#بيكوف #قهوة_مختصة #مكة",
+      "published": {
+        "media_id": "18080602163751862",
+        "at": "2026-11-19T01:59:39+00:00"
+      },
+      "note": ""
+    },
+    {
+      "id": "L02",
+      "kind": "image",
+      "date": "2026-11-20",
+      "status": "approved",
+      "pillar": "محصول",
+      "hook": "حراز: معلومة + نكهات من الكيس",
+      "drive_ids": [
+        "1ngzYtfU2fKIi6Ltxfkn7RqOB7qwKW8PI"
+      ],
+      "caption": "حراز، اليمن.\n\nمرتفعات جبلية مدرّجة، واليمن من أقدم البلاد التي عُرفت فيها زراعة القهوة.\n\nمحصول V60 عندنا بمعالجة Anaerobic: تُخمَّر الثمار في بيئة قليلة الأكسجين قبل التجفيف، وغالبًا ما تظهر معها نكهات الفاكهة. على الكيس: برتقال، بطيخ، توت.\n\nارتفاع المزرعة 2200 م، وتحميص متوسط.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
+      "published": null,
+      "note": ""
+    },
+    {
+      "id": "CAR1",
+      "kind": "carousel",
+      "date": "2026-11-21",
+      "status": "hold",
+      "pillar": "محصول",
+      "hook": "أربعة محاصيل على الكيس",
+      "drive_ids": [
+        "1HzFpMs1cPl0g-PHuP6ZAR0gnkN-q8F5X",
+        "1lDzbqNjAyLxwpSVUjYPe7Akt884ZIZyV",
+        "1UmAjftCZ7ip70JzBfeJQM1tbUnXUR22E",
+        "1znkYc75Jby472b7h1mRJj1ydIsGhaevx",
+        "1DWktSgdmDBYRN_T8C49M12igWLazy6Xm",
+        "1zqiPEDGNc_Z0eLQgw2IHtXMQwlrsDa03",
+        "1wuYtGR_3xTGWkTfQsHAPExwJwd_pId_e"
+      ],
+      "caption": "محاصيل V60 عندنا، كما هي على الكيس.\n\nأربعة محاصيل: حراز من اليمن، كالداس وجوز الهند من كولومبيا، وسفاري من إثيوبيا. لكل واحد ارتفاعه ومعالجته ونكهاته، وفي آخر الصور شرح بسيط لمعنى Natural وAnaerobic.\n\nالمتوفر منها يتغيّر، فاسأل عنه وقت زيارتك.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
+      "published": null,
+      "note": "ينتظر تأكيد توفر المحاصيل الأربعة وقرار ذكر Drip On"
+    },
+    {
+      "id": "REEL1",
+      "kind": "video",
+      "date": "2026-11-22",
+      "status": "hold",
+      "pillar": "طريقة",
+      "hook": "أول ثانيتين: لقطة الشوت المقربة",
+      "drive_ids": [],
+      "caption": "",
+      "published": null,
+      "note": "ينتظر موافقتك على ضغط الفيديو إلى 720p (حد الرفع 3 ميغا) وإضافة نص الهوك"
+    },
+    {
+      "id": "L03",
+      "kind": "image",
+      "date": "2026-11-23",
+      "status": "approved",
+      "pillar": "تعليم",
+      "hook": "الإسبريسو يكشف المحصول",
+      "drive_ids": [
+        "1tAkS49xQhy76hGGzkVM1Ll5cub-fboJO"
+      ],
+      "caption": "إسبريسو.\n\nتركيز عالٍ في فنجان صغير، وهو من أكثر الطرق كشفًا للمحصول. بلا حليب ولا سكر، ما يغطي على شيء.\n\n#بيكوف #قهوة_مختصة #مكة",
+      "published": null,
+      "note": ""
+    },
+    {
+      "id": "L05",
+      "kind": "image",
+      "date": "2026-11-24",
+      "status": "hold",
+      "pillar": "تعليم",
+      "hook": "ما هو V60",
+      "drive_ids": [
+        "1DRn3PG1Cs1PFakWWKyOJvnqz9F79BPHT"
+      ],
+      "caption": "V60.\n\nتقطير يدوي: نصبّ الماء على القهوة المطحونة ببطء وبتحكّم، فيطلع كوب نظيف تظهر فيه تفاصيل المحصول.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
+      "published": null,
+      "note": "الصورة 720×1280 — بانتظار الأصل"
+    },
+    {
+      "id": "L04",
+      "kind": "image",
+      "date": "2026-11-25",
+      "status": "approved",
+      "pillar": "قهوة اليوم",
+      "hook": "قهوة اليوم الباردة",
+      "drive_ids": [
+        "1WxMlUB6xb8qoC7I_fGUoibDUSUYHOCGD"
+      ],
+      "caption": "قهوة اليوم الباردة.\nقهوة سوداء على الثلج، وتتغيّر كل يوم.\n\nاسأل عن محصول اليوم.\n\n#بيكوف #قهوة_مختصة #مكة",
+      "published": null,
+      "note": ""
+    },
+    {
+      "id": "L06",
+      "kind": "image",
+      "date": "2026-11-27",
+      "status": "approved",
+      "pillar": "المكان",
+      "hook": "من البار",
+      "drive_ids": [
+        "1cUeEj_WFJyuVC6eoVFlBiHHO5kCeqTDv"
+      ],
+      "caption": "من البار.\n\n#بيكوف #قهوة_مختصة #مكة",
+      "published": null,
+      "note": ""
+    }
+  ]
+}
