@@ -94,7 +94,7 @@
       "pillar": "ستوري",
       "hook": "أوقات العمل والعنوان",
       "drive_ids": [
-        "1Hv-sx5lYpMXUOkCfJxGNWie_NolQVrOf"
+        "1w2GHfSaWhSv6qe06v1o9oJ9tLyIfqhbr"
       ],
       "caption": "",
       "published": null,
@@ -106,19 +106,18 @@
       "date": "2026-11-21",
       "status": "approved",
       "pillar": "محصول",
-      "hook": "أربعة محاصيل على الكيس",
+      "hook": "المحاصيل المتوفرة: فاخر + قهوة اليوم",
       "drive_ids": [
-        "1GkDMwwLMW3hsFCQpbJaSX4JgqQ82BmzK",
-        "1FLlSV40OzO310WTN-z1HjdzMyv17K_bW",
-        "1obfGNIdftDDzIgmPPk4B-0__6cDKqbKi",
-        "1gLKSwrmA0AU-BSCuTzQ27z4yBfNRXlFE",
-        "10jtvBH1vM1qC44nr9MGzsZgQ5nHp9wQk",
-        "1RpPTMyYpsPizauahzXDph6uJCEOhsBoD",
-        "1CH9e76lPlkY5z17BLxGpRaNHTtCb1EaY"
+        "1on3QvR6vDPI9Z_qM_W8mwkn9xRnW9j0b",
+        "1Iq_8ub8Q3GD02Y8rOpS2QSbK1DFyk50D",
+        "10_Pu3gLNtOE4f09CsqZDpK2KLg4bL3VY",
+        "1FlrZnOXa02IOFlS5feSjozoKKwduRe78",
+        "1zTjt4NUnOGGdLPWaIluVNJMyTG_kcAc4",
+        "1Wjle3UrMnf-xb7B1i0eRj0B27i_Q_8of"
       ],
-      "caption": "محاصيل V60 عندنا، كما هي على الكيس.\n\nأربعة محاصيل: حراز من اليمن، كالداس وجوز الهند من كولومبيا، وسفاري من إثيوبيا. لكل واحد ارتفاعه ومعالجته ونكهاته، وفي آخر الصور شرح بسيط لمعنى Natural وAnaerobic.\n\nالمتوفر منها يتغيّر، فاسأل عنه وقت زيارتك.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
+      "caption": "V60 الفاخر: حراز من اليمن وسفاري من إثيوبيا. وقهوة اليوم الباردة: كالداس من كولومبيا وهامبيلا من إثيوبيا.\n\nعلى كل كيس الارتفاع والمعالجة والنكهات، وفي آخر الشرائح شرح بسيط لمعنى Natural وAnaerobic. مصنوع بحب.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
       "published": null,
-      "note": "v2 بالهوية الرسمية (سمنتي/تيفاني/أبيض) + الشعار الحقيقي في الختام. المحاصيل متوفرة بتأكيد المؤسس"
+      "note": "محدّث بحسب توفر المؤسس 19 نوفمبر (بلا جوز الهند)"
     },
     {
       "id": "ST2",
@@ -126,9 +125,9 @@
       "date": "2026-11-21",
       "status": "approved",
       "pillar": "ستوري",
-      "hook": "محصول: حراز",
+      "hook": "V60 فاخر: حراز",
       "drive_ids": [
-        "1kVN-zhRwm5FoetcNAInCG02_nMih0IeH"
+        "1iCYiB6YFmqmhg-imKtjFQdIhuKHUlL96"
       ],
       "caption": "",
       "published": null,
@@ -154,9 +153,9 @@
       "date": "2026-11-22",
       "status": "approved",
       "pillar": "ستوري",
-      "hook": "محصول: كالداس",
+      "hook": "قهوة اليوم الباردة: كالداس",
       "drive_ids": [
-        "1YNZ9KF2HMlRolIkSzMgwVHoD0ilphjM_"
+        "1rp9AOBErn3lK_XqzuoVB4lQZq5hvL6N6"
       ],
       "caption": "",
       "published": null,
@@ -182,9 +181,9 @@
       "date": "2026-11-23",
       "status": "approved",
       "pillar": "ستوري",
-      "hook": "سؤال: أي محصول تحب؟ (أضف ستيكر Questions يدويًا إن أردت)",
+      "hook": "سؤال: أي محصول فاخر؟ (حراز/سفاري)",
       "drive_ids": [
-        "1YkmOyti9oFWSqexvxd4eNijgR9QFPNaN"
+        "1J7bXmqrwVWKOOUeSmqpXxdN0Mj-pMIWx"
       ],
       "caption": "",
       "published": null,
@@ -210,9 +209,9 @@
       "date": "2026-11-24",
       "status": "approved",
       "pillar": "ستوري",
-      "hook": "محصول: جوز الهند",
+      "hook": "قهوة اليوم الباردة: كالداس · هامبيلا (متوفرتان دائمًا)",
       "drive_ids": [
-        "1jNegbxrJLB6f0Y49E2bVszJtj46iA4Zz"
+        "1gyw6ha6qs-NV3LAab-s7DvD5zZs1ABK8"
       ],
       "caption": "",
       "published": null,
@@ -266,9 +265,9 @@
       "date": "2026-11-26",
       "status": "approved",
       "pillar": "ستوري",
-      "hook": "محصول: سفاري",
+      "hook": "V60 فاخر: سفاري",
       "drive_ids": [
-        "1C2OmCXfjUlJ9AguOBm8Q9O_ckBy9iip2"
+        "15GU4I0wkoBAaIWV4ZF8lhL4mQQZWbC3M"
       ],
       "caption": "",
       "published": null,
