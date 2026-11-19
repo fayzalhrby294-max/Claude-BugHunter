@@ -108,5 +108,49 @@ for r in range(23, 28):
 label(w2["A29"], "توقيع الموظف", True); inp(w2["B29"]); label(w2["C29"], "اعتماد المالك", True); inp(w2["D29"])
 w2.row_dimensions[29].height = 30
 w2.print_area = "A1:D29"
+
+# ============ كل الأيام ============
+w3 = wb.create_sheet("كل الأيام"); page(w3)
+w3.page_setup.orientation = "landscape"
+widths = (20, 13, 10, 14, 12, 12, 13, 12, 13, 12, 12, 10)
+for i, w in enumerate(widths): w3.column_dimensions[chr(65 + i)].width = w
+title(w3, "PEACOFF · كل الأيام", "لكل يوم: انسخ ورقة «تقفيل الشفت» (Move or Copy) وسمِّها بالتاريخ، ثم اكتب اسمها في العمود الأول · باقي الأعمدة تُسحب تلقائيًا", 12)
+ex_row = 4
+for c, v in zip("ABCDEFGHIJKL", ("مثال: 2026-11-20", "", "صباحي", "", "", "", "", "", "", "", "", "")):
+    cell = w3[f"{c}{ex_row}"]; cell.value = v or None; cell.font = font(italic=True, color="8A9496", size=9); cell.alignment = Alignment(horizontal="center")
+heads = ("اسم ورقة اليوم", "التاريخ", "الشفت", "الموظف", "نقدي", "بطاقة / Apple Pay", "الإجمالي", "مصروفات الدرج", "المتوقع", "المعدود", "الفرق", "الإغلاق")
+for i, h in enumerate(heads): hdr(w3.cell(row=6, column=i + 1), h)
+w3.row_dimensions[6].height = 30
+src = (None, "B4", "D4", "B5", "B8", "B9", "B10", "D9", "D10", "D11", "D12", "C15")
+fmts = (None, "yyyy-mm-dd", None, None, money, money, money, money, money, money, signed, None)
+R0, R1 = 7, 37  # 31 يومًا
+def pull(r, ref):
+    t = f"INDIRECT(\"'\"&$A{r}&\"'!{ref}\")"
+    return f'=IF($A{r}="","",IFERROR(IF({t}="","",{t}),"؟"))'
+for r in range(R0, R1 + 1):
+    inp(w3[f"A{r}"], align="center")
+    for j in range(1, 12):
+        c = w3.cell(row=r, column=j + 1); c.value = pull(r, src[j]); calc(c, fmts[j]); c.fill = PatternFill("fill" if False else "solid", fgColor="FFFFFF")
+    w3.row_dimensions[r].height = 20
+T = R1 + 1
+label(w3[f"A{T}"], "المجموع", True); w3[f"A{T}"].alignment = Alignment(horizontal="center"); w3[f"A{T}"].fill = PatternFill("solid", fgColor=PALE)
+for j in range(1, 12):
+    col = chr(65 + j); c = w3[f"{col}{T}"]
+    if col in "EFGHIJK": c.value = f"=SUM({col}{R0}:{col}{R1})"
+    calc(c, fmts[j], True)
+w3.conditional_formatting.add(f"K{R0}:K{R1}", FormulaRule(formula=[f'AND(ISNUMBER(K{R0}),K{R0}<>0)'], font=Font(name=F, bold=True, color="B71C1C"), fill=red))
+# إحصائيات
+S = T + 2
+stats = (("عدد الشفتات المسجّلة", f'=COUNTIF(G{R0}:G{R1},">0")', "0"),
+         ("متوسط مبيعات الشفت", f'=IFERROR(G{T}/B{S},0)', money),
+         ("عدد الشفتات التي فيها فرق", f'=SUMPRODUCT(ISNUMBER(K{R0}:K{R1})*(K{R0}:K{R1}<>0))', "0"),
+         ("صافي الفروق (+/−)", f"=K{T}", signed))
+for i, (t, f_, nf) in enumerate(stats):
+    r = S + i
+    w3.merge_cells(start_row=r, start_column=3, end_row=r, end_column=5); label(w3[f"C{r}"], t, True)
+    for cc in "DE": w3[f"{cc}{r}"].border = BORDER
+    w3[f"B{r}"] = f_; calc(w3[f"B{r}"], nf, True)
+w3.print_area = f"A1:L{S+3}"
+
 wb.save(OUT)
 print("saved", OUT)
