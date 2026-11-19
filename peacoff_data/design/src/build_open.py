@@ -4,7 +4,7 @@ S="/tmp/claude-0/-home-user-Claude-BugHunter/b9087e4e-6c13-5102-8402-2143e0fba60
 SEG=S+"seg/"
 CL={4:"5f2a9965-IMG_7227.mov",3:"ae662c5a-IMG_7225.mov",2:"bde6b851-IMG_7224.mov",5:"b76bab98-IMG_7228.mov",6:"d510305b-IMG_7230.mov",1:"3261eb24-IMG_7219.mov"}
 # (clip, ss, dur, push)
-TL=[(4,4.2,2.1,0),(2,4.5,2.0,2),(2,0.0,2.0,1),(5,0.0,2.5,0),(6,0.15,0.7,0),(1,3.0,5.4,1)]
+TL=[(4,4.0,2.4,0),(5,0.0,2.5,0),(6,0.15,0.7,0),(1,3.0,5.4,1)]
 GRADE=("hqdn3d=1.4:1.4:5:5,eq=contrast=1.06:saturation=0.9:gamma=1.02,"
        "colorbalance=rs=-0.02:bs=0.035:rh=0.05:gh=0.015:bh=-0.05,curves=all='0/0.04 0.5/0.5 1/0.97',"
        "vignette=angle=PI/6,unsharp=5:5:0.7:5:5:0.0,noise=alls=3:allf=t")
