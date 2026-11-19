@@ -190,6 +190,20 @@
       "note": "هوية رسمية + شعار حقيقي"
     },
     {
+      "id": "CUP1",
+      "kind": "image",
+      "date": "2026-11-24",
+      "status": "approved",
+      "pillar": "هوية",
+      "hook": "كوب بيكوف على خلفية سوداء",
+      "drive_ids": [
+        "16Tf-QI6TfDnPjPUk5WGoFMf3IFR1W89E"
+      ],
+      "caption": "كوب بيكوف.\nطاووس بتاج ثلاثي ونظارة أحادية، هذا رمزنا.\n\n#بيكوف #قهوة_مختصة #مكة",
+      "published": null,
+      "note": "من صور المؤسس IMG_4174"
+    },
+    {
       "id": "L05",
       "kind": "image",
       "date": "2026-11-24",
@@ -300,6 +314,20 @@
       "caption": "",
       "published": null,
       "note": "هوية رسمية + شعار حقيقي"
+    },
+    {
+      "id": "ST9",
+      "kind": "story",
+      "date": "2026-11-28",
+      "status": "approved",
+      "pillar": "ستوري",
+      "hook": "الأكواب",
+      "drive_ids": [
+        "1DANnXVzdLczHUhbm2zOlkYjqJmvBncXr"
+      ],
+      "caption": "",
+      "published": null,
+      "note": "IMG_4173"
     }
   ]
 }
