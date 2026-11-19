@@ -79,6 +79,7 @@ RISKY_PATTERNS = [
     (r"خصم\s*\d+|\d+\s*%\s*خصم", "عرض/خصم — يجب أن يكون معتمدًا"),
 ]
 
+BANNED_PHRASES = ["بلا حليب", "بلا سكر", "بلا حليب ولا سكر"]  # قرار المؤسس: العبارة محذوفة من المحتوى
 DEFAULT_HASHTAGS = ["#بيكوف", "#PEACOFF", "#مكة", "#قهوة_مختصة"]
 
 
@@ -187,6 +188,9 @@ def validate(draft: Draft, facts: list[str]) -> tuple[list[str], list[str]]:
 
     if not text.strip():
         errors.append("النص فارغ.")
+    for ph in BANNED_PHRASES:
+        if ph in text:
+            errors.append(f"عبارة محذوفة بقرار المؤسس: «{ph}».")
     if len(draft.full_caption()) > IG_CAPTION_MAX:
         errors.append(f"النص مع الوسوم يتجاوز {IG_CAPTION_MAX} حرفًا.")
     if len(draft.hashtags) > IG_HASHTAGS_MAX:
