@@ -109,15 +109,16 @@
       "hook": "المحاصيل المتوفرة: فاخر + قهوة اليوم",
       "drive_ids": [
         "1on3QvR6vDPI9Z_qM_W8mwkn9xRnW9j0b",
-        "1Iq_8ub8Q3GD02Y8rOpS2QSbK1DFyk50D",
-        "10_Pu3gLNtOE4f09CsqZDpK2KLg4bL3VY",
-        "1FlrZnOXa02IOFlS5feSjozoKKwduRe78",
+        "10tKpUxa009spoJbGA17PjJR_nzuT7G2g",
+        "1WrVINYYbF-3piab1fD1bthkHJBZ82TGf",
+        "1KmZxIOiHRQOerLqKzZPvp7WW-k9OLWST",
+        "1Ye2AHou08UWbs4PJpipJhpLCN0NSqAex",
         "1zTjt4NUnOGGdLPWaIluVNJMyTG_kcAc4",
         "1Wjle3UrMnf-xb7B1i0eRj0B27i_Q_8of"
       ],
-      "caption": "V60 الفاخر: حراز من اليمن وسفاري من إثيوبيا. وقهوة اليوم الباردة: كالداس من كولومبيا وهامبيلا من إثيوبيا.\n\nعلى كل كيس الارتفاع والمعالجة والنكهات، وفي آخر الشرائح شرح بسيط لمعنى Natural وAnaerobic. مصنوع بحب.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
+      "caption": "V60 الفاخر: حراز من اليمن وسفاري من إثيوبيا. وقهوة اليوم الباردة: كالداس من كولومبيا وهامبيلا من إثيوبيا.\n\nلكل محصول الارتفاع والمعالجة والنكهات، وفي آخر الشرائح شرح بسيط لمعنى Natural وAnaerobic. مصنوع بحب.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
       "published": null,
-      "note": "محدّث بحسب توفر المؤسس 19 نوفمبر (بلا جوز الهند)"
+      "note": "7 شرائح: 4 محاصيل. هامبيلا من ملصق Drip On (2100 م)"
     },
     {
       "id": "ST2",
@@ -328,6 +329,20 @@
       "caption": "",
       "published": null,
       "note": "IMG_4173"
+    },
+    {
+      "id": "ST10",
+      "kind": "story",
+      "date": "2026-11-29",
+      "status": "approved",
+      "pillar": "ستوري",
+      "hook": "قهوة اليوم الباردة: هامبيلا",
+      "drive_ids": [
+        "1PFm21MSRkjEt6LKChRAXEesXV-UF--N3"
+      ],
+      "caption": "",
+      "published": null,
+      "note": ""
     }
   ]
 }
