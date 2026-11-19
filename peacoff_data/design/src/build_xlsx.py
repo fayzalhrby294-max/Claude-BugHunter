@@ -196,18 +196,23 @@ for j in range(1, 12):
     if col in "EFGHIJK": c.value = f"=SUM({col}{R0}:{col}{R1})"
     calc(c, fmts[j], True)
 w3.conditional_formatting.add(f"K{R0}:K{R1}", FormulaRule(formula=[f'AND(ISNUMBER(K{R0}),K{R0}<>0)'], font=Font(name=F, bold=True, color="B71C1C"), fill=red))
-# إحصائيات
+# إحصائيات (بطاقات بنفس أسلوب الجرد)
 S = T + 2
-stats = (("عدد الشفتات المسجّلة", f'=COUNTIF(G{R0}:G{R1},">0")', "0"),
-         ("متوسط مبيعات الشفت", f'=IFERROR(G{T}/B{S},0)', money),
-         ("عدد الشفتات التي فيها فرق", f'=SUMPRODUCT(ISNUMBER(K{R0}:K{R1})*(K{R0}:K{R1}<>0))', "0"),
-         ("صافي الفروق (+/−)", f"=K{T}", signed))
-for i, (t, f_, nf) in enumerate(stats):
-    r = S + i
-    w3.merge_cells(start_row=r, start_column=3, end_row=r, end_column=5); label(w3[f"C{r}"], t, True)
-    for cc in "DE": w3[f"{cc}{r}"].border = BORDER
-    w3[f"B{r}"] = f_; calc(w3[f"B{r}"], nf, True)
-w3.print_area = f"A1:L{S+3}"
+w3.row_dimensions[T + 1].height = 10
+w3.row_dimensions[S].height = 16; w3.row_dimensions[S + 1].height = 36
+cards3 = (("A", "C", "عدد الشفتات المسجّلة", f'=COUNTIF(G{R0}:G{R1},">0")', "0", INK),
+          ("D", "F", "متوسط مبيعات الشفت", f'=IFERROR(G{T}/A{S+1},0)', money, INK),
+          ("G", "I", "شفتات فيها فرق", f'=SUMPRODUCT(ISNUMBER(K{R0}:K{R1})*(K{R0}:K{R1}<>0))', "0", "B71C1C"),
+          ("J", "L", "صافي الفروق (+/−)", f"=K{T}", signed, INK))
+for a_, b_, t, f_, nf, colr in cards3:
+    w3.merge_cells(f"{a_}{S}:{b_}{S}"); w3.merge_cells(f"{a_}{S+1}:{b_}{S+1}")
+    c = w3[f"{a_}{S}"]; c.value = t; c.font = Font(name=F, size=9, bold=True, color="6B7678"); c.alignment = Alignment(horizontal="center", vertical="bottom")
+    n = w3[f"{a_}{S+1}"]; n.value = f_; n.number_format = nf; n.font = Font(name=F, size=20, bold=True, color=colr); n.alignment = Alignment(horizontal="center", vertical="center")
+    for ci in range(ord(a_), ord(b_) + 1):
+        col = chr(ci)
+        w3[f"{col}{S}"].fill = PatternFill("solid", fgColor="FFFFFF"); w3[f"{col}{S+1}"].fill = PatternFill("solid", fgColor="FFFFFF")
+        w3[f"{col}{S}"].border = Border(top=Side(style="medium", color=TIFD)); w3[f"{col}{S+1}"].border = Border(bottom=Side(style="thin", color=HAIR))
+w3.print_area = f"A1:L{S+2}"
 
 # ============ توحيد تصميم ورقتي التقفيل وكل الأيام مع الجرد ============
 def restyle(ws, ncols, ttl, sub, legend_row):
@@ -220,12 +225,12 @@ def restyle(ws, ncols, ttl, sub, legend_row):
         for ci in range(1, ncols + 1):
             c = ws.cell(row=r_, column=ci); c.fill = PatternFill("solid", fgColor=INK)
     for ci in range(1, ncols + 1): ws.cell(row=3, column=ci).fill = PatternFill("solid", fgColor=TIFD)
-    ws.row_dimensions[1].height = 36; ws.row_dimensions[2].height = 22; ws.row_dimensions[3].height = 3
+    ws.row_dimensions[1].height = 40; ws.row_dimensions[2].height = 26; ws.row_dimensions[3].height = 3
     last = L(ncols)
     ws.merge_cells(f"B1:{last}1"); ws["B1"] = ttl; ws["B1"].font = Font(name=F, bold=True, size=20, color="FFFFFF"); ws["B1"].alignment = Alignment(horizontal="right", vertical="center")
     ws.merge_cells(f"B2:{last}2"); ws["B2"] = sub; ws["B2"].font = Font(name=F, size=8, color=TIFF, bold=True); ws["B2"].alignment = Alignment(horizontal="right", vertical="center")
     ws.merge_cells(f"A{legend_row}:{last}{legend_row}"); ws[f"A{legend_row}"] = legend; ws[f"A{legend_row}"].font = Font(name=F, size=8, italic=True, color="59666A"); ws[f"A{legend_row}"].alignment = Alignment(horizontal="right", vertical="center")
-    im = XLImage("/home/user/Claude-BugHunter/peacoff_data/design/logo/symbol_tiffany.png"); im.height = 52; im.width = int(52*739/1669); ws.add_image(im, "A1")
+    im = XLImage("/home/user/Claude-BugHunter/peacoff_data/design/logo/symbol_tiffany.png"); im.height = 66; im.width = int(66*739/1669); ws.add_image(im, "A1")
     for row in ws.iter_rows(min_row=4):
         for c in row:
             rgb = (c.fill.fgColor.rgb or "") if c.fill and c.fill.fill_type else ""
