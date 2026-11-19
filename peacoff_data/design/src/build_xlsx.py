@@ -39,37 +39,95 @@ def page(ws):
 
 wb = Workbook()
 
-# ============ الجرد ============
+# ============ الجرد (تصميم فاخر) ============
+from openpyxl.drawing.image import Image as XLImage
 ws = wb.active; ws.title = "الجرد"; page(ws)
-for col, w in zip("ABCDE", (30, 12, 14, 14, 16)): ws.column_dimensions[col].width = w
-title(ws, "PEACOFF · الجرد", "املأ الخانات الصفراء فقط · الحالة تُحسب تلقائيًا: «اطلب» إذا كان الموجود ≤ الحد الأدنى", 5)
-label(ws["A4"], "التاريخ", True); inp(ws["B4"], "yyyy-mm-dd"); ws.merge_cells("B4:C4")
-label(ws["D4"], "المسؤول", True); inp(ws["E4"])
-for c, t in zip("ABCDE", ("الصنف", "الوحدة", "الموجود", "الحد الأدنى", "الحالة")): hdr(ws[f"{c}6"], t)
-ws.row_dimensions[6].height = 24
-# سطر مثال (يُحذف)
-ex = 7
-for c, v in zip("ABCD", ("مثال (احذف السطر): حليب تجريبي", "عبوة", 12, 5)): ws[f"{c}{ex}"] = v
-for c in "ABCD":
-    ws[f"{c}{ex}"].font = font(italic=True, color="8A9496", size=10); ws[f"{c}{ex}"].alignment = Alignment(horizontal="center" if c != "A" else "right"); ws[f"{c}{ex}"].border = BORDER
-BEANS = ["Haraz · حراز", "Safari · سفاري", "Hambela · هامبيلا", "Guji Korma · قوجي كورما", "Caldas · كالداس"]
-first, last = 8, 8 + 20 - 1  # 20 صفًا
-for r in range(first, last + 1):
-    i = r - first
-    c = ws[f"A{r}"]; inp(c, align="right")
-    if i < len(BEANS): c.value = BEANS[i]
-    b = ws[f"B{r}"]; inp(b)
-    if i < len(BEANS): b.value = "كجم"
-    inp(ws[f"C{r}"], "#,##0.##"); inp(ws[f"D{r}"], "#,##0.##")
-    ws.row_dimensions[r].height = 22
-for r in range(ex, last + 1):
-    s = ws[f"E{r}"]; s.value = f'=IF(OR(C{r}="",D{r}=""),"",IF(C{r}<=D{r},"اطلب","✓"))'; calc(s, bold=True)
-ws.row_dimensions[ex].height = 22
+INK="23272A"; TIFF="55C5C6"; TIFD="2F9A9B"; CREAM="FBF8F1"; SAND="F1ECE0"; HAIR="D9DEDE"
 red = PatternFill("solid", bgColor="F8D7DA", fgColor="F8D7DA")
-ws.conditional_formatting.add(f"E{ex}:E{last}", CellIsRule(operator="equal", formula=['"اطلب"'], fill=red, font=Font(name=F, bold=True, color="B71C1C")))
-ws.cell(row=last + 2, column=1, value="ملاحظة: الأصناف الخمسة الأولى من البن المعتمد؛ باقي الصفوف فارغة لأصنافك. الحد الأدنى تحدده أنت.").font = font(size=9, italic=True, color="59666A")
-ws.merge_cells(start_row=last + 2, start_column=1, end_row=last + 2, end_column=5)
-ws.print_area = f"A1:E{last+2}"
+hair = Side(style="hair", color="B8C0C1"); thin2 = Side(style="thin", color="D5DADA")
+widths = {"A":2.5,"B":34,"C":12,"D":13,"E":13,"F":15,"G":28,"H":2.5}
+for k,v in widths.items(): ws.column_dimensions[k].width = v
+def fill(c,hexc): c.fill = PatternFill("solid", fgColor=hexc)
+# --- الشريط العلوي ---
+for r in range(1,5):
+    for col in "ABCDEFGH": fill(ws[f"{col}{r}"], INK)
+ws.row_dimensions[1].height = 22; ws.row_dimensions[2].height = 22; ws.row_dimensions[3].height = 16; ws.row_dimensions[4].height = 10
+ws.merge_cells("C1:G2"); ws["C1"] = "الجرد  ·  INVENTORY"; ws["C1"].font = Font(name=F, bold=True, size=22, color="FFFFFF"); ws["C1"].alignment = Alignment(horizontal="right", vertical="center")
+ws.merge_cells("C3:G3"); ws["C3"] = "P E A C O F F   ·   COFFEE & MORE"; ws["C3"].font = Font(name=F, size=8, color=TIFF, bold=True); ws["C3"].alignment = Alignment(horizontal="right", vertical="center")
+img = XLImage("/home/user/Claude-BugHunter/peacoff_data/design/logo/symbol_tiffany.png"); img.height = 62; img.width = int(62*739/1669); ws.add_image(img, "B1")
+for col in "ABCDEFGH": fill(ws[f"{col}5"], TIFD)
+ws.row_dimensions[5].height = 3; ws.row_dimensions[6].height = 12
+# --- بيانات الجرد ---
+def tag(c, t):
+    c.value=t; c.font=Font(name=F,bold=True,size=10,color=INK); c.fill=PatternFill("solid",fgColor=SAND); c.alignment=Alignment(horizontal="center",vertical="center"); c.border=Border(bottom=Side(style="medium",color=TIFD))
+def field_(c, fmt=None):
+    c.fill=PatternFill("solid",fgColor=CREAM); c.font=Font(name=F,size=11,color=INK); c.alignment=Alignment(horizontal="center",vertical="center"); c.border=Border(bottom=Side(style="thin",color="8B9293"))
+    if fmt: c.number_format=fmt
+tag(ws["B7"],"التاريخ"); ws.merge_cells("C7:D7"); field_(ws["C7"],"yyyy-mm-dd"); field_(ws["D7"])
+tag(ws["E7"],"المسؤول"); ws.merge_cells("F7:G7"); field_(ws["F7"]); field_(ws["G7"])
+ws.row_dimensions[7].height = 26; ws.row_dimensions[8].height = 10
+# --- بطاقات الملخص (تُعبّأ لاحقًا بعد معرفة النطاقات) ---
+ws.row_dimensions[9].height = 16; ws.row_dimensions[10].height = 34; ws.row_dimensions[11].height = 12
+# --- رأس الجدول ---
+HR = 12
+for col,t in zip("BCDEFG",("الصنف","الوحدة","الموجود","الحد الأدنى","الحالة","ملاحظات")):
+    c=ws[f"{col}{HR}"]; c.value=t; c.font=Font(name=F,bold=True,size=10,color="FFFFFF"); fill(c,INK); c.alignment=Alignment(horizontal="center" if col!="B" else "right",vertical="center",indent=1 if col=="B" else 0); c.border=Border(bottom=Side(style="medium",color=TIFF))
+ws.row_dimensions[HR].height = 26
+dvu = DataValidation(type="list", formula1='"كجم,جرام,لتر,عبوة,كرتون,قطعة"', allow_blank=True); ws.add_data_validation(dvu)
+r = HR+1
+# سطر مثال
+for col,v in zip("BCDE",("مثال — احذف هذا السطر: حليب تجريبي","عبوة",12,5)):
+    c=ws[f"{col}{r}"]; c.value=v; c.font=Font(name=F,italic=True,size=10,color="8A9496"); c.alignment=Alignment(horizontal="right" if col=="B" else "center",vertical="center",indent=1 if col=="B" else 0)
+ws[f"F{r}"] = f'=IF(OR(D{r}="",E{r}=""),"",IF(D{r}<=E{r},"اطلب","متوفر"))'
+ws[f"G{r}"].value = None
+ws.row_dimensions[r].height = 22
+ex_row = r; r += 1
+GROUPS = [("البن  ·  COFFEE BEANS", ["Haraz  ·  حراز","Safari  ·  سفاري","Hambela  ·  هامبيلا","Guji Korma  ·  قوجي كورما","Caldas  ·  كالداس"], "كجم"),
+          ("مشروبات ومكوّنات  ·  DRINKS & INGREDIENTS", [""]*5, ""),
+          ("تغليف ومستلزمات  ·  PACKAGING & SUPPLIES", [""]*5, ""),
+          ("أخرى  ·  OTHER", [""]*3, "")]
+data_rows=[]; first_data = r
+for gt, items, unit in GROUPS:
+    ws.merge_cells(start_row=r,start_column=2,end_row=r,end_column=7)
+    c=ws[f"B{r}"]; c.value=gt; c.font=Font(name=F,bold=True,size=9,color=TIFD); c.alignment=Alignment(horizontal="right",vertical="center",indent=1)
+    for col in "BCDEFG": fill(ws[f"{col}{r}"],SAND); ws[f"{col}{r}"].border=Border(bottom=Side(style="thin",color=TIFD))
+    ws.row_dimensions[r].height = 20; r += 1
+    for it in items:
+        for col in "BCDEG": 
+            cc=ws[f"{col}{r}"]; cc.fill=PatternFill("solid",fgColor=CREAM); cc.border=Border(bottom=thin2,left=Side(style="hair",color="E6EAEA"),right=Side(style="hair",color="E6EAEA"))
+            cc.font=Font(name=F,size=11,color=INK,bold=(col=="B")); cc.alignment=Alignment(horizontal="right" if col in "BG" else "center",vertical="center",indent=1 if col in "BG" else 0)
+        if it: ws[f"B{r}"]=it
+        if unit: ws[f"C{r}"]=unit
+        dvu.add(f"C{r}"); ws[f"D{r}"].number_format="#,##0.##"; ws[f"E{r}"].number_format="#,##0.##"
+        ws[f"F{r}"] = f'=IF(OR(D{r}="",E{r}=""),"",IF(D{r}<=E{r},"اطلب","متوفر"))'
+        fc=ws[f"F{r}"]; fc.font=Font(name=F,bold=True,size=10); fc.alignment=Alignment(horizontal="center",vertical="center"); fc.border=Border(bottom=thin2); fc.fill=PatternFill("solid",fgColor="FFFFFF")
+        ws.row_dimensions[r].height = 23; data_rows.append(r); r += 1
+last_data = r-1
+# حالة المثال
+fc=ws[f"F{ex_row}"]; fc.font=Font(name=F,bold=True,size=10,color="8A9496"); fc.alignment=Alignment(horizontal="center",vertical="center")
+rng=f"F{ex_row}:F{last_data}"
+ws.conditional_formatting.add(rng, CellIsRule(operator="equal", formula=['"اطلب"'], fill=PatternFill("solid",bgColor="F8D7DA",fgColor="F8D7DA"), font=Font(name=F,bold=True,color="B71C1C")))
+ws.conditional_formatting.add(rng, FormulaRule(formula=[f'LEFT(F{ex_row},5)="متوفر"'], font=Font(name=F,bold=True,color="1E6B34")))
+# --- بطاقات الملخص ---
+dr = f"D{first_data}:D{last_data}"; fr = f"F{first_data}:F{last_data}"
+cards=(("B","C","الأصناف المجرودة",f"=COUNT({dr})"),("D","E","تحتاج طلب",f'=COUNTIF({fr},"اطلب")'),("F","G","متوفرة",f'=COUNTIF({fr},"متوفر*")'))
+for a_,b_,t,f_ in cards:
+    ws.merge_cells(f"{a_}9:{b_}9"); ws.merge_cells(f"{a_}10:{b_}10")
+    c=ws[f"{a_}9"]; c.value=t; c.font=Font(name=F,size=9,bold=True,color="6B7678"); c.alignment=Alignment(horizontal="center",vertical="bottom")
+    n=ws[f"{a_}10"]; n.value=f_; n.font=Font(name=F,size=20,bold=True,color=(("B71C1C") if t=="تحتاج طلب" else INK)); n.alignment=Alignment(horizontal="center",vertical="center")
+    for col in (a_,b_):
+        for rr in (9,10): ws[f"{col}{rr}"].fill=PatternFill("solid",fgColor="FFFFFF"); ws[f"{col}{rr}"].border=Border(top=Side(style="medium",color=TIFD) if rr==9 else None, bottom=Side(style="thin",color=HAIR) if rr==10 else None)
+# --- التذييل ---
+r = last_data + 2
+ws.merge_cells(f"B{r}:G{r}"); ws[f"B{r}"]="الخانات الكريمية للتعبئة · الحالة تُحسب تلقائيًا: «اطلب» إذا الموجود ≤ الحد الأدنى · الحد الأدنى تحدده أنت"
+ws[f"B{r}"].font=Font(name=F,size=8,italic=True,color="7D8788"); ws[f"B{r}"].alignment=Alignment(horizontal="right",indent=1)
+r += 2
+ws.row_dimensions[r].height = 26
+tag(ws[f"B{r}"],"توقيع المسؤول"); ws.merge_cells(f"C{r}:D{r}"); field_(ws[f"C{r}"]); field_(ws[f"D{r}"])
+tag(ws[f"E{r}"],"اعتماد المالك"); ws.merge_cells(f"F{r}:G{r}"); field_(ws[f"F{r}"]); field_(ws[f"G{r}"])
+ws.freeze_panes = f"A{HR+1}"
+ws.print_area = f"A1:H{r+1}"
+ws.page_margins.left = ws.page_margins.right = 0.4; ws.page_margins.top = 0.4; ws.page_margins.bottom = 0.4
 
 # ============ تقفيل الشفت ============
 w2 = wb.create_sheet("تقفيل الشفت"); page(w2)
