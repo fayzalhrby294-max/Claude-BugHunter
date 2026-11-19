@@ -70,16 +70,16 @@ ws.row_dimensions[7].height = 26; ws.row_dimensions[8].height = 10
 ws.row_dimensions[9].height = 16; ws.row_dimensions[10].height = 34; ws.row_dimensions[11].height = 12
 # --- رأس الجدول ---
 HR = 12
-for col,t in zip("BCDEFG",("الصنف","الوحدة","الموجود","الحد الأدنى","الحالة","ملاحظات")):
+for col,t in zip("BCDEF",("الصنف","الوحدة","الموجود","الحالة","ملاحظات")):
     c=ws[f"{col}{HR}"]; c.value=t; c.font=Font(name=F,bold=True,size=10,color="FFFFFF"); fill(c,INK); c.alignment=Alignment(horizontal="center" if col!="B" else "right",vertical="center",indent=1 if col=="B" else 0); c.border=Border(bottom=Side(style="medium",color=TIFF))
+fill(ws[f"G{HR}"],INK); ws[f"G{HR}"].border=Border(bottom=Side(style="medium",color=TIFF)); ws.merge_cells(f"F{HR}:G{HR}")
 ws.row_dimensions[HR].height = 26
 dvu = DataValidation(type="list", formula1='"كجم,جرام,لتر,عبوة,كرتون,قطعة"', allow_blank=True); ws.add_data_validation(dvu)
+dvs = DataValidation(type="list", formula1='"اطلب,متوفر"', allow_blank=True); ws.add_data_validation(dvs)
 r = HR+1
 # سطر مثال
-for col,v in zip("BCDE",("مثال — احذف هذا السطر: حليب تجريبي","عبوة",12,5)):
+for col,v in zip("BCDE",("مثال — احذف هذا السطر: حليب تجريبي","عبوة",12,"متوفر")):
     c=ws[f"{col}{r}"]; c.value=v; c.font=Font(name=F,italic=True,size=10,color="8A9496"); c.alignment=Alignment(horizontal="right" if col=="B" else "center",vertical="center",indent=1 if col=="B" else 0)
-ws[f"F{r}"] = f'=IF(OR(D{r}="",E{r}=""),"",IF(D{r}<=E{r},"اطلب","متوفر"))'
-ws[f"G{r}"].value = None
 ws.row_dimensions[r].height = 22
 ex_row = r; r += 1
 GROUPS = [("البن  ·  COFFEE BEANS", ["Haraz  ·  حراز","Safari  ·  سفاري","Hambela  ·  هامبيلا","Guji Korma  ·  قوجي كورما","Caldas  ·  كالداس"], "كجم"),
@@ -93,24 +93,23 @@ for gt, items, unit in GROUPS:
     for col in "BCDEFG": fill(ws[f"{col}{r}"],SAND); ws[f"{col}{r}"].border=Border(bottom=Side(style="thin",color=TIFD))
     ws.row_dimensions[r].height = 20; r += 1
     for it in items:
-        for col in "BCDEG": 
+        for col in "BCDEFG": 
             cc=ws[f"{col}{r}"]; cc.fill=PatternFill("solid",fgColor=CREAM); cc.border=Border(bottom=thin2,left=Side(style="hair",color="E6EAEA"),right=Side(style="hair",color="E6EAEA"))
-            cc.font=Font(name=F,size=11,color=INK,bold=(col=="B")); cc.alignment=Alignment(horizontal="right" if col in "BG" else "center",vertical="center",indent=1 if col in "BG" else 0)
+            cc.font=Font(name=F,size=11,color=INK,bold=(col=="B")); cc.alignment=Alignment(horizontal="right" if col in "BFG" else "center",vertical="center",indent=1 if col in "BFG" else 0)
         if it: ws[f"B{r}"]=it
         if unit: ws[f"C{r}"]=unit
-        dvu.add(f"C{r}"); ws[f"D{r}"].number_format="#,##0.##"; ws[f"E{r}"].number_format="#,##0.##"
-        ws[f"F{r}"] = f'=IF(OR(D{r}="",E{r}=""),"",IF(D{r}<=E{r},"اطلب","متوفر"))'
-        fc=ws[f"F{r}"]; fc.font=Font(name=F,bold=True,size=10); fc.alignment=Alignment(horizontal="center",vertical="center"); fc.border=Border(bottom=thin2); fc.fill=PatternFill("solid",fgColor="FFFFFF")
+        dvu.add(f"C{r}"); ws[f"D{r}"].number_format="#,##0.##"; dvs.add(f"E{r}"); ws.merge_cells(f"F{r}:G{r}")
+        fc=ws[f"E{r}"]; fc.font=Font(name=F,bold=True,size=10); fc.alignment=Alignment(horizontal="center",vertical="center"); fc.border=Border(bottom=thin2); fc.fill=PatternFill("solid",fgColor="FFFFFF")
         ws.row_dimensions[r].height = 23; data_rows.append(r); r += 1
 last_data = r-1
 # حالة المثال
-fc=ws[f"F{ex_row}"]; fc.font=Font(name=F,bold=True,size=10,color="8A9496"); fc.alignment=Alignment(horizontal="center",vertical="center")
-rng=f"F{ex_row}:F{last_data}"
+fc=ws[f"E{ex_row}"]; fc.font=Font(name=F,bold=True,size=10,color="8A9496"); fc.alignment=Alignment(horizontal="center",vertical="center")
+rng=f"E{ex_row}:E{last_data}"
 ws.conditional_formatting.add(rng, CellIsRule(operator="equal", formula=['"اطلب"'], fill=PatternFill("solid",bgColor="F8D7DA",fgColor="F8D7DA"), font=Font(name=F,bold=True,color="B71C1C")))
-ws.conditional_formatting.add(rng, FormulaRule(formula=[f'LEFT(F{ex_row},5)="متوفر"'], font=Font(name=F,bold=True,color="1E6B34")))
+ws.conditional_formatting.add(rng, FormulaRule(formula=[f'LEFT(E{ex_row},5)="متوفر"'], font=Font(name=F,bold=True,color="1E6B34")))
 # --- بطاقات الملخص ---
-dr = f"D{first_data}:D{last_data}"; fr = f"F{first_data}:F{last_data}"
-cards=(("B","C","الأصناف المجرودة",f"=COUNT({dr})"),("D","E","تحتاج طلب",f'=COUNTIF({fr},"اطلب")'),("F","G","متوفرة",f'=COUNTIF({fr},"متوفر*")'))
+dr = f"D{first_data}:D{last_data}"; fr = f"E{first_data}:E{last_data}"
+cards=(("B","C","الأصناف المجرودة",f"=COUNT({dr})"),("D","E","تحتاج طلب",f'=COUNTIF({fr},"اطلب")'),("F","G","متوفرة",f'=COUNTIF({fr},"متوفر")'))
 for a_,b_,t,f_ in cards:
     ws.merge_cells(f"{a_}9:{b_}9"); ws.merge_cells(f"{a_}10:{b_}10")
     c=ws[f"{a_}9"]; c.value=t; c.font=Font(name=F,size=9,bold=True,color="6B7678"); c.alignment=Alignment(horizontal="center",vertical="bottom")
@@ -119,7 +118,7 @@ for a_,b_,t,f_ in cards:
         for rr in (9,10): ws[f"{col}{rr}"].fill=PatternFill("solid",fgColor="FFFFFF"); ws[f"{col}{rr}"].border=Border(top=Side(style="medium",color=TIFD) if rr==9 else None, bottom=Side(style="thin",color=HAIR) if rr==10 else None)
 # --- التذييل ---
 r = last_data + 2
-ws.merge_cells(f"B{r}:G{r}"); ws[f"B{r}"]="الخانات الكريمية للتعبئة · الحالة تُحسب تلقائيًا: «اطلب» إذا الموجود ≤ الحد الأدنى · الحد الأدنى تحدده أنت"
+ws.merge_cells(f"B{r}:G{r}"); ws[f"B{r}"]="الخانات الكريمية للتعبئة · الحالة: اختر «اطلب» أو «متوفر» من القائمة · البطاقات في الأعلى تُحسب تلقائيًا"
 ws[f"B{r}"].font=Font(name=F,size=8,italic=True,color="7D8788"); ws[f"B{r}"].alignment=Alignment(horizontal="right",indent=1)
 r += 2
 ws.row_dimensions[r].height = 26

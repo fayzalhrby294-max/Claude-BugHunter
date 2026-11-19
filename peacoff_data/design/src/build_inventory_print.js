@@ -8,8 +8,8 @@ const ff=(fam,w,f,r)=>`@font-face{font-family:'${fam}';font-weight:${w};src:url(
 const css=[400,600,700].flatMap(w=>[ff('NSA',w,`noto-sans-arabic/files/noto-sans-arabic-arabic-${w}-normal.woff2`,AR),ff('NSA',w,`open-sans/files/open-sans-latin-${w}-normal.woff2`,LA)]).join('');
 const GROUPS=[['البن','COFFEE BEANS',['Haraz · حراز','Safari · سفاري','Hambela · هامبيلا','Guji Korma · قوجي كورما','Caldas · كالداس'],'كجم'],
  ['مشروبات ومكوّنات','DRINKS & INGREDIENTS',['','','','',''],''],['تغليف ومستلزمات','PACKAGING & SUPPLIES',['','','','',''],''],['أخرى','OTHER',['','',''],'']];
-const row=(n,u)=>`<tr><td class="nm">${n||''}</td><td class="c">${u||''}</td><td></td><td></td><td class="st"><span><i></i>اطلب</span><span><i></i>متوفر</span></td><td></td></tr>`;
-const body=GROUPS.map(([a,e,items,u])=>`<tr class="band"><td colspan="6"><b>${a}</b><span>${e}</span></td></tr>${items.map(n=>row(n,u)).join('')}`).join('');
+const row=(n,u)=>`<tr><td class="nm">${n||''}</td><td class="c">${u||''}</td><td></td><td class="st"><span><i></i>اطلب</span><span><i></i>متوفر</span></td><td></td></tr>`;
+const body=GROUPS.map(([a,e,items,u])=>`<tr class="band"><td colspan="5"><b>${a}</b><span>${e}</span></td></tr>${items.map(n=>row(n,u)).join('')}`).join('');
 const html=`<!doctype html><html dir="rtl" lang="ar"><head><meta charset="utf-8"><style>${css}
 @page{size:A4;margin:0}*{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'NSA',sans-serif;color:#23272a;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -35,7 +35,7 @@ tr.band td{background:#f1ece0;border-bottom:.3mm solid #2f9a9b;height:7mm;paddin
 <div class="in">
 <div class="fl"><div class="f"><span>التاريخ</span><i></i></div><div class="f"><span>المسؤول</span><i></i></div></div>
 <div class="sm"><div><small>الأصناف المجرودة</small></div><div><small>تحتاج طلب</small></div><div><small>متوفرة</small></div></div>
-<table><thead><tr><th style="width:56mm">الصنف</th><th style="width:17mm">الوحدة</th><th style="width:20mm">الموجود</th><th style="width:20mm">الحد الأدنى</th><th style="width:36mm">الحالة</th><th>ملاحظات</th></tr></thead><tbody>${body}</tbody></table>
+<table><thead><tr><th style="width:56mm">الصنف</th><th style="width:17mm">الوحدة</th><th style="width:20mm">الموجود</th><th style="width:42mm">الحالة</th><th>ملاحظات</th></tr></thead><tbody>${body}</tbody></table>
 <div class="sg"><div class="f"><span>توقيع المسؤول</span><i></i></div><div class="f"><span>اعتماد المالك</span><i></i></div></div>
 </div><div class="foot">COFFEE &amp; MORE</div></section></body></html>`;
 (async()=>{const br=await chromium.launch();const p=await br.newPage();await p.setContent(html);await p.evaluate(()=>document.fonts.ready);
