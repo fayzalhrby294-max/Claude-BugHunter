@@ -109,16 +109,17 @@
       "hook": "المحاصيل المتوفرة: فاخر + قهوة اليوم",
       "drive_ids": [
         "1on3QvR6vDPI9Z_qM_W8mwkn9xRnW9j0b",
-        "10tKpUxa009spoJbGA17PjJR_nzuT7G2g",
-        "1WrVINYYbF-3piab1fD1bthkHJBZ82TGf",
-        "1KmZxIOiHRQOerLqKzZPvp7WW-k9OLWST",
-        "1Ye2AHou08UWbs4PJpipJhpLCN0NSqAex",
+        "1TWTi8o2I2tD-QF5nbJdssUtXjfXI_9EJ",
+        "16ipXxCFRmBQzK5KuUNNVQmuqy2ZRdZfn",
+        "1GOWVhJnmQtJCM1YmOMMa_addEw09-P98",
+        "1o2lyeP2SbF4k54z2FyqcDnPvGL2M9Odh",
+        "13bmX12HaA2IizsNAX3x0ZJTGgR_tQtPp",
         "1zTjt4NUnOGGdLPWaIluVNJMyTG_kcAc4",
         "1Wjle3UrMnf-xb7B1i0eRj0B27i_Q_8of"
       ],
-      "caption": "V60 الفاخر: حراز من اليمن وسفاري من إثيوبيا. وقهوة اليوم الباردة: كالداس من كولومبيا وهامبيلا من إثيوبيا.\n\nلكل محصول الارتفاع والمعالجة والنكهات، وفي آخر الشرائح شرح بسيط لمعنى Natural وAnaerobic. مصنوع بحب.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
+      "caption": "محاصيلنا الآن.\n\nV60 الفاخر: حراز من اليمن وسفاري من إثيوبيا.\nV60 الكلاسيك: قوجي كورما من إثيوبيا.\nقهوة اليوم الباردة: كالداس من كولومبيا وهامبيلا من إثيوبيا.\n\nلكل محصول الارتفاع والمعالجة والنكهات، وفي آخر الشرائح شرح بسيط لمعنى Natural وAnaerobic. مصنوع بحب.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
       "published": null,
-      "note": "7 شرائح: 4 محاصيل. هامبيلا من ملصق Drip On (2100 م)"
+      "note": "8 شرائح: 5 محاصيل (فاخر، كلاسيك، قهوة اليوم)"
     },
     {
       "id": "ST2",
@@ -339,6 +340,20 @@
       "hook": "قهوة اليوم الباردة: هامبيلا",
       "drive_ids": [
         "1PFm21MSRkjEt6LKChRAXEesXV-UF--N3"
+      ],
+      "caption": "",
+      "published": null,
+      "note": ""
+    },
+    {
+      "id": "ST11",
+      "kind": "story",
+      "date": "2026-11-30",
+      "status": "approved",
+      "pillar": "ستوري",
+      "hook": "V60 كلاسيك: قوجي كورما",
+      "drive_ids": [
+        "11pT2mUkc7kbAAajA3J8CEqKB-b2QqA6v"
       ],
       "caption": "",
       "published": null,
