@@ -37,9 +37,7 @@
     "applies_to": [
       "haraz",
       "safari",
-      "korma",
-      "caldas",
-      "hambela"
+      "korma"
     ],
     "_source": "قول المؤسس: الجرامات كلها 20، والماء كله 150 ثلج + 150 ماء",
     "_missing": [
@@ -48,5 +46,17 @@
       "البلوم",
       "إسبريسو: الناتج والوقت"
     ]
+  },
+  "cold_coffee_of_the_day": {
+    "coffee_g": 100,
+    "ice_g": 500,
+    "grind": 7,
+    "temp_c": 89,
+    "applies_to": [
+      "caldas",
+      "hambela"
+    ],
+    "_note": "لا يُذكر الماء على البطاقة بطلب المؤسس",
+    "_source": "المؤسس 2026-11-20"
   }
 }
