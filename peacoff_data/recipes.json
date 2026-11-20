@@ -4,10 +4,12 @@
     "station": "الكوكيز",
     "chocolate": "Aalst Pâtissier Artisan Milk 42%",
     "chocolate_g": 185,
-    "oil_g": 25,
     "microwave": "Med، 30 ث ثم 20 ث مع التقليب",
     "hold_c": "40-45",
-    "_to_confirm": "هل الزيت 25 جم للدفعة كلها أم لكل جزء؟ تأكيد كلمة Belgian على العبوة"
+    "_to_confirm": "هل الشوكولاتة دارك أم حليب 42%؟ وتأكيد كلمة Belgian",
+    "oil_ml": 25,
+    "oil_note": "25 مل زيت على 185 جم شوكولاتة (تأكيد المؤسس)",
+    "display_name": "دارك شوكولاتة (بطلب المؤسس: لا يُكتب «صوص الكوكيز»)"
   },
   "hibiscus": {
     "hibiscus_g": 80,
