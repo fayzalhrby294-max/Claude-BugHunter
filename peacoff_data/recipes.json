@@ -10,15 +10,43 @@
     "_to_confirm": "هل الزيت 25 جم للدفعة كلها أم لكل جزء؟ تأكيد كلمة Belgian على العبوة"
   },
   "hibiscus": {
-    "hibiscus_g": 80, "water_ml": 1100, "water_temp_c": 90, "sugar_g": 187, "berries_g": 70, "tea_g": 7, "time_min": 20,
+    "hibiscus_g": 80,
+    "water_ml": 1100,
+    "water_temp_c": 90,
+    "sugar_g": 187,
+    "berries_g": 70,
+    "tea_g": 7,
+    "time_min": 20,
     "_assumed_units": "الماء بالمل والسكر والتوت بالجرام؛ التوت من توضيح المؤسس لكلمة «الفمتو»"
   },
   "water_temp_c_by_origin": {
-    "haraz_yemen": 89, "safari": 86, "coconut": 86, "others_caldas_hambela_korma": 89
+    "haraz_yemen": 89,
+    "safari": 86,
+    "coconut": 86,
+    "others_caldas_hambela_korma": 89
   },
   "grind": {
     "yemeni": "بعد 6 واحد",
     "colombian": "قبل 6 واحد",
     "_to_confirm": "معنى «6 واحد» ورقم الطاحونة"
+  },
+  "filter_and_cold": {
+    "coffee_g": 20,
+    "hot_water_ml": 150,
+    "ice_g": 150,
+    "applies_to": [
+      "haraz",
+      "safari",
+      "korma",
+      "caldas",
+      "hambela"
+    ],
+    "_source": "قول المؤسس: الجرامات كلها 20، والماء كله 150 ثلج + 150 ماء",
+    "_missing": [
+      "الطحن",
+      "الوقت",
+      "البلوم",
+      "إسبريسو: الناتج والوقت"
+    ]
   }
 }
