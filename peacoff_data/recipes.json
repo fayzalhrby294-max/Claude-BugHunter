@@ -90,5 +90,32 @@
     "water_temp_c": 90,
     "machine": "Flair Espresso (ذراع يدوي)",
     "profile": "5 ث على 3 بار، 5 ث على 5 بار، 5 ث على 9 بار (مؤكد من عداد الضغط)"
+  },
+  "v60_method": {
+    "pours": [
+      {
+        "water_g": 50,
+        "wait_s": 30
+      },
+      {
+        "water_g": 50,
+        "wait_s": 30
+      },
+      {
+        "water_g": 50,
+        "wait_s": 30
+      }
+    ],
+    "total_water_ml": 150,
+    "applies_to": [
+      "haraz",
+      "safari",
+      "korma",
+      "caldas_v60"
+    ],
+    "_source": "المؤسس 2026-11-20",
+    "_missing": [
+      "وقت الاستخلاص الكلي (إن أراده)"
+    ]
   }
 }
