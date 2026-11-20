@@ -1,0 +1,24 @@
+{
+  "_source": "ملاحظة المؤسس بتاريخ 2026-11-20 وتوضيحاته في المحادثة. القيم غير المؤكدة مذكورة صراحةً.",
+  "belgian_chocolate_sauce": {
+    "station": "الكوكيز",
+    "chocolate": "Aalst Pâtissier Artisan Milk 42%",
+    "chocolate_g": 185,
+    "oil_g": 25,
+    "microwave": "Med، 30 ث ثم 20 ث مع التقليب",
+    "hold_c": "40-45",
+    "_to_confirm": "هل الزيت 25 جم للدفعة كلها أم لكل جزء؟ تأكيد كلمة Belgian على العبوة"
+  },
+  "hibiscus": {
+    "hibiscus_g": 80, "water_ml": 1100, "water_temp_c": 90, "sugar_g": 187, "berries_g": 70, "tea_g": 7, "time_min": 20,
+    "_assumed_units": "الماء بالمل والسكر والتوت بالجرام؛ التوت من توضيح المؤسس لكلمة «الفمتو»"
+  },
+  "water_temp_c_by_origin": {
+    "haraz_yemen": 89, "safari": 86, "coconut": 86, "others_caldas_hambela_korma": 89
+  },
+  "grind": {
+    "yemeni": "بعد 6 واحد",
+    "colombian": "قبل 6 واحد",
+    "_to_confirm": "معنى «6 واحد» ورقم الطاحونة"
+  }
+}
