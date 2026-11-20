@@ -364,22 +364,6 @@
       "caption": "",
       "published": null,
       "note": ""
-    },
-    {
-      "id": "REEL_MANUAL1",
-      "kind": "video",
-      "date": "2026-11-20",
-      "status": "published",
-      "pillar": "ريلز",
-      "hook": "ريلز نشره المؤسس يدويًا (الصباح على الأرجح)",
-      "drive_ids": [],
-      "caption": "",
-      "published": {
-        "media_id": null,
-        "at": "2026-11-20T18:00:00+00:00",
-        "manual": true
-      },
-      "note": "نُشر يدويًا من المؤسس؛ لم يُحدَّد أي ريل من التقويم، فلم يُغيَّر REEL1 ولا REEL2"
     }
   ]
 }
