@@ -110,7 +110,7 @@
       "id": "CAR1",
       "kind": "carousel",
       "date": "2026-11-21",
-      "status": "approved",
+      "status": "published",
       "pillar": "محصول",
       "hook": "المحاصيل المتوفرة: فاخر + قهوة اليوم",
       "drive_ids": [
@@ -124,21 +124,27 @@
         "1Wjle3UrMnf-xb7B1i0eRj0B27i_Q_8of"
       ],
       "caption": "محاصيلنا الآن.\n\nV60 الفاخر: حراز من اليمن وسفاري من إثيوبيا.\nV60 الكلاسيك: قوجي كورما من إثيوبيا.\nقهوة اليوم الباردة: كالداس من كولومبيا وهامبيلا من إثيوبيا.\n\nلكل محصول الارتفاع والمعالجة والنكهات، وفي آخر الشرائح شرح بسيط لمعنى Natural وAnaerobic. مصنوع بحب.\n\n#بيكوف #قهوة_مختصة #مكة #V60",
-      "published": null,
+      "published": {
+        "media_id": "18121895074778247",
+        "at": "2026-11-21T18:50:21+00:00"
+      },
       "note": "8 شرائح: 5 محاصيل (فاخر، كلاسيك، قهوة اليوم)"
     },
     {
       "id": "ST2",
       "kind": "story",
       "date": "2026-11-21",
-      "status": "approved",
+      "status": "published",
       "pillar": "ستوري",
       "hook": "V60 فاخر: حراز",
       "drive_ids": [
         "1iCYiB6YFmqmhg-imKtjFQdIhuKHUlL96"
       ],
       "caption": "",
-      "published": null,
+      "published": {
+        "media_id": "18192391276411949",
+        "at": "2026-11-21T18:50:22+00:00"
+      },
       "note": "هوية رسمية + شعار حقيقي"
     },
     {
