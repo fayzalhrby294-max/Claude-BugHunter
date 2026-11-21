@@ -1,6 +1,6 @@
 const {C,LOGOS,baseCSS,plumage,fs,path}=require('../winter/lib.js');const {chromium}=require('playwright');
 const OUT=process.argv[2];fs.mkdirSync(OUT,{recursive:true});
-const QRS={v60:'data:image/png;base64,'+fs.readFileSync('../qr/qr_v60.png').toString('base64'),choc:'data:image/png;base64,'+fs.readFileSync('../qr/qr_choc.png').toString('base64'),cold:'data:image/png;base64,'+fs.readFileSync('../qr/qr_cold.png').toString('base64')};
+const QRS={v60:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_v60.svg').toString('base64'),choc:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_choc.svg').toString('base64'),cold:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_cold.svg').toString('base64')};
 const cards=[
 {id:'v60',station:'محطة V60',en:'V60',title:'V60',qr:1,
  ing:[['القهوة','20','جم'],['الثلج','150','جم'],['الماء','150','مل']],
