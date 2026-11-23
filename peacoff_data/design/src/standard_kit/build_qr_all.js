@@ -1,6 +1,6 @@
 const {C,LOGOS,baseCSS,plumage,fs,path}=require('../winter/lib.js');const {chromium}=require('playwright');
 const OUT=process.argv[2];fs.mkdirSync(OUT,{recursive:true});
-const QRS={v60:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_v60.svg').toString('base64'),choc:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_choc.svg').toString('base64'),cold:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_cold.svg').toString('base64')};
+const QRS={hib:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_hib.svg').toString('base64'),v60:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_v60.svg').toString('base64'),choc:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_choc.svg').toString('base64'),cold:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_cold.svg').toString('base64')};
 const cards=[
 {id:'v60',station:'محطة V60',en:'V60',title:'V60',qr:1,
  ing:[['القهوة','20','جم'],['الثلج','150','جم'],['الماء','150','مل']],
@@ -13,7 +13,7 @@ const cards=[
 {id:'esp',station:'محطة الإسبريسو',en:'ESPRESSO',title:'إسبريسو',
  ing:[['البن','18.5','جم'],['الطحن','15',''],['حرارة الماء','90','°م'],['الناتج','30','جم']],
  steps:['ضع 18.5 جم بن، واطحنه على 15.','وزّع البن في السلة، ثم اضغطه بالتامبر.','الاستخلاص: 5 ثواني على 3 بار، ثم 5 على 5 بار، ثم 5 على 9 بار.','الناتج 30 جم في 30 ثانية.']},
-{id:'hib',station:'محطة الكركديه',en:'HIBISCUS',title:'كركديه',
+{id:'hib',station:'محطة الكركديه',en:'HIBISCUS',title:'كركديه',qr:1,
  ing:[['كركديه','80','جم'],['ماء','1100','مل'],['سكر','187','جم'],['توت','70','جم'],['شاي','7','جم'],['حرارة الماء','90','°م']],
  steps:['اغسل الكركديه أولًا.','ضع المكونات كلها في وعاء واحد.','صب الماء فوقها، وانتظر 20 دقيقة.','صفِّه، واتركه 5 دقائق خارج الثلاجة.','ضعه في الثلاجة.'],table:{h:['الحجم','الثلج','الكركديه'],r:[['صغير','4 مكعبات','150 مل'],['كبير','8 مكعبات','250 مل']]}},
 {id:'choc',station:'محطة الكوكيز',en:'DARK CHOCOLATE',title:'دارك شوكولاتة',

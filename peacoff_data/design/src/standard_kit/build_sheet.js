@@ -1,6 +1,6 @@
 const {C,LOGOS,baseCSS,plumage,fs,path}=require('../winter/lib.js');const {chromium}=require('playwright');
 const cards=require('./cards_data.js');const OUT=process.argv[2];fs.mkdirSync(OUT,{recursive:true});
-const QR={v60:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_v60.svg').toString('base64'),cold:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_cold.svg').toString('base64'),choc:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_choc.svg').toString('base64')};
+const QR={hib:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_hib.svg').toString('base64'),v60:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_v60.svg').toString('base64'),cold:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_cold.svg').toString('base64'),choc:'data:image/svg+xml;base64,'+fs.readFileSync('../qr/qr_choc.svg').toString('base64')};
 const order={v60:0,hib:1,cold:2,esp:3,choc:4};
 const col1=['v60','hib'],col2=['cold','esp','choc'];const by=Object.fromEntries(cards.map(c=>[c.id,c]));
 const block=c=>`<section class="b"><div class="h"><div><small>${c.en}</small><h1>${c.title}</h1></div></div>

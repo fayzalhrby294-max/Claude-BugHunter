@@ -1,10 +1,25 @@
 {
   "_note": "روابط فيديوهات الباركود لحزمة الستاندر. عند وصول رابط جديد: أنشئ QR بـ segno (scale 24, dark #2f3436)، أضفه إلى قاموس QR في design/src/standard_kit/build_sheet.js وbuild_qr_all.js (مفتاح = id البطاقة)، ثم أعد البناء وأرسل الحزمة.",
   "cards": {
-    "v60":  {"url": "https://drive.google.com/file/d/1HRDEIV6V5psacEcddPoCLYJvmOynihip/view?usp=drivesdk", "status": "done"},
-    "cold": {"url": "https://drive.google.com/file/d/1zqShfpz7yE4X188EYcTkZtMXckwBihtN/view?usp=drivesdk", "status": "done"},
-    "choc": {"url": "https://drive.google.com/file/d/1erMDic-_bpTCxcZh26udKR_yY7L4a-iP/view?usp=drivesdk", "status": "done"},
-    "esp":  {"url": null, "status": "ينتظر فيديو المؤسس"},
-    "hib":  {"url": null, "status": "ينتظر فيديو المؤسس"}
+    "v60": {
+      "url": "https://drive.google.com/file/d/1HRDEIV6V5psacEcddPoCLYJvmOynihip/view?usp=drivesdk",
+      "status": "done"
+    },
+    "cold": {
+      "url": "https://drive.google.com/file/d/1zqShfpz7yE4X188EYcTkZtMXckwBihtN/view?usp=drivesdk",
+      "status": "done"
+    },
+    "choc": {
+      "url": "https://drive.google.com/file/d/1erMDic-_bpTCxcZh26udKR_yY7L4a-iP/view?usp=drivesdk",
+      "status": "done"
+    },
+    "esp": {
+      "url": null,
+      "status": "ينتظر فيديو المؤسس"
+    },
+    "hib": {
+      "url": "https://drive.google.com/file/d/1W2fNtr_zaNJ_iKoWmHee1TwmAs-YJGOd/view?usp=drivesdk",
+      "status": "مرفوع بنسخة صغيرة 360p؛ يحتاج مشاركة «أي شخص لديه الرابط» من المؤسس"
+    }
   }
 }
